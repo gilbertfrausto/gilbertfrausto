@@ -2,26 +2,41 @@
   <div class="w-fll h-full flex flex-row items-center justify-center animate-fade-in">
     <nav class="min-h-48 min-w-48 flex flex-col items-center justify-center relative z-10">
       <ul class="flex flex-col">
-        <li v-for="link in routes"
+        <li 
+          v-for="(link, index) in listItems"
+         
+          :key="link"
+          :style="{ animationDelay: `${index * delay}ms` }"
           :class="[
-            'center-nav-link p-2 cursor-pointer hover:opacity-75 transition-all relative z-10',
+            'center-nav-link p-2 cursor-pointer hover:opacity-75 relative z-10',
+            'opacity-0 animate-fade-in translate-y-4 transition-all duration-500',
             'font-kode text-xl text-white text-center',
             'border border-transparent hover:border-white rounded-xs',
-            'px-8 py-2 m-2 my-4 bg',
-            link.name === 'Home' ? 'hidden' : ''
+            'px-8 py-2 m-2 my-4 bg'
           ]">
           <router-link :to="link.path"  v-if="link.name !== 'Home'">
             {{link.name}}
-          </router-link>
-        </li>
+        </router-link>
+      </li>
       </ul>
       <!-- <div class="w-full h-full texture-bg-inner absolute top-0"></div> -->
     </nav>
   </div>
 </template>
 
-<script setup>
+<script setup>;
+import { ref, onMounted } from 'vue'
 import { routes } from '../router';
+const delay = 150; // ms
+const show = ref(false);
+
+const listItems = routes.filter(item => item.name !== 'Home');
+
+onMounted(() => {
+  // Trigger show after mount
+  show.value = true;
+});
+
 </script>
 
 <style>
@@ -77,13 +92,50 @@ import { routes } from '../router';
     position: absolute;
     background-image: url(../assets/images/border.png);
     background-size: 100% 100%;
+    transform: translate(-3ch, -3mm);
+  }
+  &:before {
+    content: ' ';
+    opacity: 0;
+    right: -10px;
+    top: 10px;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    position: absolute;
+    background-image: url(../assets/images/border-right.png);
+    background-size: 100% 100%;
+    transform: translate(0ch, -11mm);
   }
   &:hover {
     &:after {
       opacity: 1;
-      transition: opacity 0.5s cubic-bezier(.44,.32,.13,.75);
+      transform: translate(0, 0);
+      transition: all 0.5s cubic-bezier(.44,.32,.13,.75);
+    }
+     &:before {
+      opacity: 1;
+      transform: translate(0ch, -5mm);
+      transition: all 0.5s cubic-bezier(.44,.32,.13,.75);
     }
   }
 }
 
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(1rem);
+}
+
+.fade-enter-to,
+.fade-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.5s ease;
+}
 </style>

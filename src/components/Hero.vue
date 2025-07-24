@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-white/30 dark:bg-black/30 w-full h-full absolute top-0">
-    <div class="hero -z-[1] absolute overflow-hidden opacity-40 inset"></div>
+  <div class="bg-white/30 dark:bg-black/50 w-full h-full absolute top-0 -z-[1] overflow-hidden">
+    <div class="hero -z-[1] absolute overflow-hidden opacity-40 inset top-0"></div>
   </div>
 </template>
 
