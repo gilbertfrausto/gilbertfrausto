@@ -20,7 +20,7 @@
           ]"
           :style="{ 
             backgroundImage: `url(${project.img})`,
-            animationDelay: `${project.project_index * delay}ms`
+            animationDelay: `${project.project_index * DELAY}ms`
           }"
         >
         </div>
@@ -29,7 +29,7 @@
   </div>
 
   <!-- MODAL -->
-  <TransitionRoot appear :show="isOpen" as="template">
+  <TransitionRoot appear :show="active" as="template">
     <Dialog as="div" @close="closeModal" class="relative z-10">
       <TransitionChild
         as="template"
@@ -97,11 +97,14 @@
       </div>
     </Dialog>
   </TransitionRoot>
+
+  <Backdrop />
 </template>
 <script setup>
 import { BxArrowBack } from '@kalimahapps/vue-icons';
 import { ClCloseLg } from '@kalimahapps/vue-icons';
-import { ref } from 'vue'
+import { ref } from 'vue';
+import { storeToRefs } from 'pinia';
 import {
   TransitionRoot,
   TransitionChild,
@@ -109,16 +112,21 @@ import {
   DialogPanel,
   DialogTitle,
 } from '@headlessui/vue';
-import Costume from '../components/projects/Costume.vue';
-import Google from '../components/projects/Google.vue';
-import Bb from '../components/projects/Bb.vue';
-import Pz from '../components/projects/Pz..vue';
-import { BUTTON_STYLES } from '../classes/button';
+import Costume from '@/components/projects/Costume.vue';
+import Google from '@/components/projects/Google.vue';
+import Bb from '@/components/projects/Bb.vue';
+import Pz from '@/components/projects/Pz..vue';
+import Backdrop from '@/components/Backdrop.vue';
+import { BUTTON_STYLES } from '@/classes/button';
+import useAppStore from '@/store/app-store';
 
-const isOpen = ref(false);
-const project = ref('');
+
 const BLANK = 'blank';
-const delay = 150;
+const DELAY = 150;
+
+const store = useAppStore();
+const {active, project} = storeToRefs(store);
+const {setActive, setProject} = store;
 
 const PROJECTS = {
   COSTUME: 'Costume',
@@ -163,11 +171,11 @@ const all = {
 
 
 function closeModal() {
-  isOpen.value = false;
+  setActive(false);
 }
 function openModal(name) {
-  project.value = name;
-  isOpen.value = true;
+  setProject(name);
+  setActive(true);
   console.log('called open modal', name)
 }
 </script>

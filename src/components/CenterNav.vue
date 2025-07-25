@@ -20,8 +20,8 @@
 
 <script setup>;
 import { ref, onMounted } from 'vue'
-import { routes } from '../router';
-import { BUTTON_STYLES } from '../classes/button';
+import { routes } from '@/router';
+import { BUTTON_STYLES } from '@/classes/button';
 const delay = 150; // ms
 const show = ref(false);
 
@@ -76,6 +76,7 @@ onMounted(() => {
 
 .bg {
   /* background-image: radial-gradient(circle at 22% 28%, #8C52FF 0%, #001B85 69%, #000000 99%); */
+  /* border: 2px solid white; */
   &:after {
     content: ' ';
     opacity: 0;

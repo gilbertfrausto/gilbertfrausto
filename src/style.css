@@ -16,6 +16,7 @@
   --animate-fade-in-delay-2: fade-in 0.5s 2s ease-in;
   --animate-fade-out: fade-out 0.5s  cubic-bezier(.44,.32,.13,.75);
   --animate-float: float 2.5s infinite alternate linear; 
+  --tranistion-stagger: all .3s cubic-bezier(0.47, 0, 0.745, 0.715);  
 
   /* FONTS */
   --font-lex: "lex", "sans-serif";
@@ -50,6 +51,16 @@
     }
     to {
       transform: translateY(-12px);
+    }
+  }
+  @keyframes stagger {
+    0% {
+      opacity: 0;
+      transform: translatex(-100%);
+    }
+    100% {
+      opacity: 100;
+      transform: translateY(0);
     }
   }
 }
