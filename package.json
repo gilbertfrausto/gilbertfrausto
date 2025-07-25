@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui/vue": "^1.7.23",
+    "@kalimahapps/vue-icons": "^1.8.1",
     "@tailwindcss/vite": "^4.1.11",
     "tailwindcss": "^4.1.11",
     "three": "^0.178.0",

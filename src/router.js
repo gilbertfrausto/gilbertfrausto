@@ -8,8 +8,8 @@ import Projects from './routes/Projects.vue';
 export const routes = [
   { name: 'Home', path: '/', component: Home },
   { name: 'Projects', path: '/projects', component: Projects },
-  { name: 'Contact', path: '/contact', component: Contact },
   { name: 'About', path: '/about', component: About },
+  { name: 'Contact', path: '/contact', component: Contact },
 ];
 
 export const router = createRouter({

@@ -10,8 +10,7 @@
   <!-- BG -->
   <Greetings msg="Vite + Vue" class="-z-[1]"/>
   <Hero />
-
-
+  
   <Footer />  
 </template>
 

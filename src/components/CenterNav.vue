@@ -4,19 +4,13 @@
       <ul class="flex flex-col">
         <li 
           v-for="(link, index) in listItems"
-         
           :key="link"
           :style="{ animationDelay: `${index * delay}ms` }"
-          :class="[
-            'center-nav-link p-2 cursor-pointer hover:opacity-75 relative z-10',
-            'opacity-0 animate-fade-in translate-y-4 transition-all duration-500',
-            'font-kode text-xl text-white text-center',
-            'border border-transparent hover:border-white rounded-xs',
-            'px-8 py-2 m-2 my-4 bg'
-          ]">
+          :class="[...BUTTON_STYLES]">
           <router-link :to="link.path"  v-if="link.name !== 'Home'">
             {{link.name}}
         </router-link>
+        <!-- <div class="w-full h-full left-0 texture-bg-inner absolute top-0 -z-[1]"></div> -->
       </li>
       </ul>
       <!-- <div class="w-full h-full texture-bg-inner absolute top-0"></div> -->
@@ -27,10 +21,17 @@
 <script setup>;
 import { ref, onMounted } from 'vue'
 import { routes } from '../router';
+import { BUTTON_STYLES } from '../classes/button';
 const delay = 150; // ms
 const show = ref(false);
 
-const listItems = routes.filter(item => item.name !== 'Home');
+const listItems = routes
+  .filter(item => item.name !== 'Home')
+  .reduce((all, item) => {
+    let {name, path} = item;
+    all.push({name, path});
+    return all;
+  },[]);
 
 onMounted(() => {
   // Trigger show after mount
