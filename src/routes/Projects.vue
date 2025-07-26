@@ -57,20 +57,20 @@
             leave-to="opacity-0 scale-95"
           >
             <DialogPanel
-              class="w-full max-w-md transform overflow-hidden rounded-2xl bg-black p-6 text-left align-middle shadow-xl transition-all"
+              class="w-full md:w-1/2 transform overflow-hidden rounded-xl bg-black-dull text-left align-middle shadow-xl transition-all"
             >
-              <DialogTitle
+              <!-- <DialogTitle
                 as="h3"
                 class="w-full text-lg font-medium leading-6 text-white flex justify-end"
               >
                 <button
                   type="button"
-                  :class="[...BUTTON_STYLES]"
+                  :class="[...ICON_BUTTON_STYLES]"
                   @click="closeModal"
                 >
                  <ClCloseLg />
                 </button>
-              </DialogTitle>
+              </DialogTitle> -->
               
               <!-- PROJECT COMPONENTS -->
               <Costume v-if="project === PROJECTS.COSTUME" />
@@ -79,18 +79,6 @@
               <Pz v-else-if="project === PROJECTS.PZ"/>
 
               <div v-else>no project</div>
-
-              <!-- BUTTONS
-              <div class="mt-4">
-                <button
-                  type="button"
-                  :class="[...BUTTON_STYLES]"
-                  @click="closeModal"
-                >
-                 <ClCloseLg />
-                </button>
-              </div> 
-              -->
             </DialogPanel>
           </TransitionChild>
         </div>
@@ -100,10 +88,10 @@
 
   <Backdrop />
 </template>
+
 <script setup>
 import { BxArrowBack } from '@kalimahapps/vue-icons';
 import { ClCloseLg } from '@kalimahapps/vue-icons';
-import { ref } from 'vue';
 import { storeToRefs } from 'pinia';
 import {
   TransitionRoot,
@@ -117,7 +105,7 @@ import Google from '@/components/projects/Google.vue';
 import Bb from '@/components/projects/Bb.vue';
 import Pz from '@/components/projects/Pz..vue';
 import Backdrop from '@/components/Backdrop.vue';
-import { BUTTON_STYLES } from '@/classes/button';
+import { ICON_BUTTON_STYLES } from '@/classes/button';
 import useAppStore from '@/store/app-store';
 
 

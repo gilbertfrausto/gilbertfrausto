@@ -9,6 +9,8 @@
   --color-purp: #8C52FF;
   --color-out: #001B85;
   --color-tron: oklch(0.8653 0.147544 204.0171);
+  --color-black-dull: #1e1e1d;
+  --color-white-dull: rgba(250,249,246,0.7);
 
   /* ANIMATE */
   --animate-fade-in: fade-in 0.5s .05s ease-in forwards;

@@ -1,5 +1,5 @@
 <template>
-  <div class="w-fll h-full flex flex-row items-center justify-center animate-fade-in">
+  <div class="w-fll h-full flex flex-row items-center justify-end animate-fade-in">
     <nav class="min-h-48 min-w-48 flex flex-col items-center justify-center relative z-10">
       <ul class="flex flex-col">
         <li 
