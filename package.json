@@ -11,6 +11,7 @@
   "dependencies": {
     "@headlessui/vue": "^1.7.23",
     "@kalimahapps/vue-icons": "^1.8.1",
+    "@splidejs/vue-splide": "^0.6.12",
     "@tailwindcss/vite": "^4.1.11",
     "pinia": "^3.0.3",
     "tailwindcss": "^4.1.11",

@@ -12,11 +12,11 @@
         <div v-for="project in item"
           @click="openModal(project.name)"
           :class="[
-            'lg:w-30 lg:h-30 w-20 h-20  bg-transparent m-2 border-transparent rounded-2xl relative',
+            'lg:w-30 lg:h-30 w-20 h-20  bg-transparent m-2 border-2 border-transparent rounded-2xl relative',
             'cursor-pointer transition-all duration-300 opacity-0 animate-fade-in',
             'bg-contain bg-no-repeat',
             'after:rounded-2xl',
-            project.name === BLANK ? 'bg-transparent hidden lg:flex' : 'tile bg-black hover:shadow-2xl hover:scale-110 hover:border-tron'
+            project.name === BLANK ? 'bg-transparent hidden lg:flex' : 'tile bg-black hover:shadow-2xl hover:scale-110 hover:border-white'
           ]"
           :style="{ 
             backgroundImage: `url(${project.img})`,
@@ -44,9 +44,7 @@
       </TransitionChild>
 
       <div class="fixed inset-0 overflow-y-auto">
-        <div
-          class="flex min-h-full items-center justify-center p-4 text-center"
-        >
+        <div class="flex min-h-full items-center justify-center p-4 text-center">
           <TransitionChild
             as="template"
             enter="duration-300 ease-out"
@@ -57,26 +55,19 @@
             leave-to="opacity-0 scale-95"
           >
             <DialogPanel
-              class="w-full md:w-1/2 transform overflow-hidden rounded-xl bg-black-dull text-left align-middle shadow-xl transition-all"
+              :class="[
+                'w-full md:w-2/3 relative transform rounded-lg bg-black-dull text-left align-middle shadow-xl', 
+                'border-2',
+                'transition-all modal-border-efx',
+                modalAnimation ? 'active' : 'inactive'
+              ]"
             >
-              <!-- <DialogTitle
-                as="h3"
-                class="w-full text-lg font-medium leading-6 text-white flex justify-end"
-              >
-                <button
-                  type="button"
-                  :class="[...ICON_BUTTON_STYLES]"
-                  @click="closeModal"
-                >
-                 <ClCloseLg />
-                </button>
-              </DialogTitle> -->
-              
+ 
               <!-- PROJECT COMPONENTS -->
-              <Costume v-if="project === PROJECTS.COSTUME" />
-              <Google v-else-if="project === PROJECTS.GOOGLE"/>
-              <Bb v-else-if="project === PROJECTS.BB"/>
-              <Pz v-else-if="project === PROJECTS.PZ"/>
+              <Costume v-if="project === PROJECTS.COSTUME" :name="project"/>
+              <Google v-else-if="project === PROJECTS.GOOGLE" :name="project"/>
+              <Bb v-else-if="project === PROJECTS.BB" :name="project"/>
+              <Pz v-else-if="project === PROJECTS.PZ" :name="project"/>
 
               <div v-else>no project</div>
             </DialogPanel>
@@ -108,13 +99,21 @@ import Backdrop from '@/components/Backdrop.vue';
 import { ICON_BUTTON_STYLES } from '@/classes/button';
 import useAppStore from '@/store/app-store';
 
+// Default theme
+import '@splidejs/vue-splide/css';
+
+// or only core styles
+import '@splidejs/vue-splide/css/core';
+
 
 const BLANK = 'blank';
 const DELAY = 150;
 
 const store = useAppStore();
-const {active, project} = storeToRefs(store);
-const {setActive, setProject} = store;
+const {active, project, modalAnimation} = storeToRefs(store);
+const {setActive, setProject, setModalAnimation} = store;
+
+// MOVE TO CONSTANTS FILE
 
 const PROJECTS = {
   COSTUME: 'Costume',
@@ -157,14 +156,14 @@ const all = {
   ]
 }
 
-
 function closeModal() {
+  setModalAnimation(false)
   setActive(false);
 }
 function openModal(name) {
   setProject(name);
   setActive(true);
-  console.log('called open modal', name)
+  setTimeout(() => setModalAnimation(true), 100);
 }
 </script>
 
@@ -177,7 +176,7 @@ function openModal(name) {
     height: 102%;
     top: 0;
     opacity: 0;
-    border: 2px solid white;
+    /* border: 2px solid white; */
     background-color: transparent;
     transition: all .5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
   }
@@ -187,7 +186,61 @@ function openModal(name) {
       z-index: 10;
       /* box-shadow: 10px 7px 41px 0px rgba(87,209,187,0.58); */
     }
-    
+  }
+}
+
+
+.modal-border-efx {
+  /* background-image: radial-gradient(circle at 22% 28%, #8C52FF 0%, #001B85 69%, #000000 99%); */
+  /* border: 2px solid white; */
+    &:before {
+    content: ' ';
+    opacity: 0;
+    top: -10px;
+    right: -30px;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    position: absolute;
+    background-image: url(../assets/images/border-lg-rounded-right.png);
+    background-size: 100% 100%;
+    transform: translate(0ch, -11mm);
+    animation-delay: 1s;
+  }
+
+  &:after {
+    content: ' ';
+    opacity: 0;
+    left: -30px;
+    bottom: -30px;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    /* border-top: white;
+    border-right: white;
+    border-width: 1px; */
+    z-index: -1;
+    /* background-color: #00000000; */
+    /* background: linear-gradient(rgba(255, 255, 255, 0.284), rgba(0, 0, 0, 0)) padding-box, linear-gradient(#ffffff00, #00000000) border-box; */
+    position: absolute;
+    background-image: url(../assets/images/border-lg-rounded-left.png);
+    background-size: 100% 100%;
+    transform: translate(-3ch, -3mm);
+    animation-delay: 1s;
+  }
+
+  &.active {
+    &:after {
+      opacity: 1;
+      transform: translate(0, 0);
+      transition: all 0.5s cubic-bezier(.44,.32,.13,.75);
+    }
+     &:before {
+      opacity: 1;
+      transform: translate(0ch, -5mm);
+      transition: all 0.5s cubic-bezier(.44,.32,.13,.75);
+    }
   }
 }
 </style>

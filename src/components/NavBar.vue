@@ -4,12 +4,14 @@
       <div>
         <router-link to="/" class="text-white font-prompt p-2 cursor-pointer text-xl hover:opacity-50">Υς.ΔΙΘ</router-link>
       </div>
-      <!-- <ul class="flex flex-row">
+      <!-- 
+      Just a placeholder for future nav items.
+      <ul class="flex flex-row">
         <li v-for="link in navs" 
         class='text-white font-prompt p-2 cursor-pointer hover:o
         pacity-35 transition-all text-xl'>{{link}}</li>
       </ul>
-    -->
+      -->
     </nav>
   </div>
 </template>

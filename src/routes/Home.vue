@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import Greetings from '@/components/Greetings.vue';
+import Greetings from '@/components/Gemini.vue';
 import CenterNav from '@/components/CenterNav.vue';
 import Hero from '@/components/Hero.vue';
 </script>

@@ -1,7 +1,11 @@
 <template>
   <div class="w-full h-full flex items-center justify-center">
-    <p>Google</p>
+    <p>{{name}}</p>
   </div>
 </template>
-<script setup></script>
+<script setup>
+defineProps({
+  name: String
+});
+</script>
 <style></style>

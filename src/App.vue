@@ -8,17 +8,17 @@
   </main>
 
   <!-- BG -->
-  <Greetings msg="Vite + Vue" class="-z-[1]"/>
+  <Gemini class="-z-[1]"/>
   <Hero />
 
   <Footer />  
 </template>
 
 <script setup>
-import Greetings from '@/components/Greetings.vue';
 import Hero from '@/components/Hero.vue';
 import NavBar from '@/components/NavBar.vue';
 import Footer from '@/components/Footer.vue';
+import Gemini from '@/components/Gemini.vue';
 </script>
 
 <style scoped>

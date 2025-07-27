@@ -5,7 +5,8 @@ const useAppStore = defineStore('app', {
   state: () => {
     return {
       active: ref(false),
-      project: undefined
+      project: undefined,
+      modalAnimation: false
     }
   },
   actions: {
@@ -14,6 +15,9 @@ const useAppStore = defineStore('app', {
     },
     setProject(project) {
       this.project = project;
+    },
+    setModalAnimation(modalAnimation) {
+      this.modalAnimation = modalAnimation;
     }
   }
 

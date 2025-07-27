@@ -3,7 +3,7 @@ export const BUTTON_STYLES = [
   'opacity-0 animate-fade-in translate-y-4 transition-all duration-500',
   'font-kode text-sm text-white-dull text-center ',
   'border border-transparent hover:border-white rounded-xs',
-  'px-8 py m-2 my-4 bg'
+  'px-8 py-1 m-2 my-3 bg'
 ];
 
 export const ICON_BUTTON_STYLES = [
