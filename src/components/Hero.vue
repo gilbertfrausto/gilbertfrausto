@@ -16,11 +16,11 @@
   z-index: -1;
   /* opacity: .4; */
   transition: opacity 1s ease;
-  /* background: url('./assets/noise.png'), radial-gradient(circle at right center, #563277, #23212a 30%, #07090a 55%, #32517380); */
+  background: url('./assets/noise.png'), radial-gradient(circle at right center, #563277, #23212a 30%, #07090a 55%, #32517380);
   /* -webkit-mask-image: radial-gradient(ellipse 300% 30% at center center, #000 20%, #00000080 50%, #0000); */
   /* mask-image: radial-gradient(ellipse 300% 30% at center center, #000 20%, #00000080 50%, #0000); */
   /* background-image: url('./assets/noise.png'), linear-gradient(to right top, rgb(255, 0, 145), rgb(237, 41, 174), rgb(211, 67, 200), rgb(176, 87, 221), rgb(131, 103, 236), rgb(98, 125, 248), rgb(59, 143, 254), rgb(0, 159, 255), rgb(0, 186, 255), rgb(0, 211, 255), rgb(0, 234, 255), rgb(0, 255, 252)); */
-  background: linear-gradient(315deg, #29c566, #6629c5, #c56629);
+  /* background: linear-gradient(315deg, #29c566, #6629c5, #c56629); */
   background-size: 200% 200%;
   animation: gradient-animation 15s ease infinite;
 }

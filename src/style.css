@@ -18,7 +18,12 @@
   --animate-fade-in-delay-2: fade-in 0.5s 2s ease-in;
   --animate-fade-out: fade-out 0.5s  cubic-bezier(.44,.32,.13,.75);
   --animate-float: float 2.5s infinite alternate linear; 
-  --tranistion-stagger: all .3s cubic-bezier(0.47, 0, 0.745, 0.715);  
+  --animate-pulse-glow: pulse-shadow 2s infinite ease-in-out;
+  --animate-background-move: background-move 10s linear infinite alternate;
+
+  /* * update or remove this stagger line */
+  --transition-stagger: all .3s cubic-bezier(0.47, 0, 0.745, 0.715);
+  
 
   /* FONTS */
   --font-lex: "lex", "sans-serif";
@@ -65,7 +70,35 @@
       transform: translateY(0);
     }
   }
+
+  @keyframes pulse-shadow {
+    0% {
+      filter: drop-shadow(0 0 0px green);
+    }
+    50% {
+      filter: drop-shadow(0 0 10px green);
+    }
+    100% {
+      filter: drop-shadow(0 0 0px green);
+    }
+  }
+
+  @keyframes background-move {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 100% 0;
+    }
+  }
 }
+
+/* .pulse-glow {
+  animation: pulseShadow 2s infinite ease-in-out;
+  transition: filter 0.3s;
+} */
+
+
 
 .fade-out {
   &::after {
@@ -98,11 +131,13 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* OMNI */
 html, body, #app {
   height: 100%;
   width: 100%;
 }
 
+/* FONT FACE */
 @font-face {
   font-family: lex;
   src: url('./assets/fonts/LexendDeca-Regular.ttf');
@@ -116,4 +151,21 @@ html, body, #app {
 @font-face {
   font-family: kode;
   src: url('./assets/fonts/KodeMono-Regular.ttf');
+}
+
+
+/* OVERIDES */
+.my-carousel-progress {
+  background: color-mix(in oklab, var(--color-white-dull) 50%, transparent );
+}
+
+.my-carousel-progress-bar {
+  background: var(--color-tron);
+  height: 4px;
+  transition: width 400ms ease;
+  width: 0;
+}
+
+.splide__track {
+  overflow: visible !important;
 }

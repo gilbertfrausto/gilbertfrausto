@@ -10,43 +10,15 @@
         <p class="text-2xl text-white-dull font-lex">
           {{name}}
         </p>
-        <p class="text-xl text-white-dull/50 font-lex">{{costume.tags.join(', ')}}</p>  
+        <p class="text-xl text-white-dull/50 font-lex">{{pz.tags.join(', ')}}</p>  
       </div>
 
       <!-- BODY TEXT -->
       <div class="flex flex-auto overflow-scroll md:flex-row flex-col items-start justify-between">
         <div class="flex flex-col md:w-1/2 w-full p-4">
           <p class="font-kode text-sm text-white-dull">
-            {{ costume.description }}
+            {{ pz.description }}
           </p>
-
-          <div class="py-4">
-            <div class="flex flex-row items-center">
-              <h3 class="font-lex text-white">{{ costume.projects.costume_cards.name }}</h3>
-              <a class="mx-2" target="_blank" :href="costume.socials.website">
-                <GvWorld class="text-xl my-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"/>
-              </a>
-            </div>
-            
-            <p class="font-kode text-sm  text-white-dull">
-              {{ costume.projects.costume_cards.description }} 
-            </p>
-            <p class="text-sm text-white/50 font-kode pt-2">{{costume.projects.costume_cards.stack}}</p>  
-          </div>
-          
-          <div class="py-4">
-            <div class="flex flex-row items-center">
-              <h3 class="font-lex text-white">{{ costume.projects.platformer_prototype.name }}</h3>
-              <a class="mx-2" target="_blank" :href="costume.socials.youtube">
-                <SiYoutube class="text-xl my-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"/>
-              </a>
-            </div>
-            <p class="font-kode text-sm  text-white-dull">
-              {{costume.projects.platformer_prototype.description}}
-            </p>
-            <p class="text-sm text-white/50 font-kode pt-2">{{costume.projects.platformer_prototype.stack}}</p>  
-          </div>
-           
         </div>
 
         
@@ -57,7 +29,7 @@
             aria-label="My Favorite Images"
             @splide:move="onArrowsMounted"
           >
-            <SplideSlide v-for="(image, index) in costume.images" :key="index">
+            <SplideSlide v-for="(image, index) in pz.images" :key="index">
               
               <iframe v-if="image.video" :src="image.src" class="rounded-lg w-full h-full" controls></iframe>
               <img v-else :src="image.src" :alt="image.alt" class="rounded-lg w-full" />
@@ -107,8 +79,8 @@ import { SiOpensea, SiInstagram, SiDiscord, SiYoutube, FaBandsXTwitter, GvWorld,
 import { Splide, SplideSlide,  } from '@splidejs/vue-splide';
 import { ref } from 'vue';
 
-const {costume} = PROJECTS_DATA;
-const startEnd  = costume.images.length + 1;
+const {pz} = PROJECTS_DATA;
+const startEnd  = pz.images.length + 1;
 const startRate = Math.min( 1 / startEnd, 1 );
 const width = ref(`${String( 100 * startRate )}%`);
 
@@ -117,30 +89,31 @@ defineProps({
   closeModal: Function,
 });
 
-console
 
+// ADD TO CONST File, LOOK INTO ADD THE THE ICONS HERE
 const SOCIALS = [
   {
     name: 'IG',
-    link: costume.socials.instagram,
+    link: pz.socials.instagram,
     icon: SiInstagram,
   },
   {
     name: 'Discord',
-    link: costume.socials.discord,
+    link: pz.socials.discord,
     icon: SiDiscord,
   },
   {
-    name: 'Opensea',
-    link: costume.socials.opensea,
-    icon: SiOpensea,
-  },
-  {
     name: 'X',
-    link: costume.socials.twitter,
+    link: pz.socials.twitter,
     icon: FaBandsXTwitter,
   },
+  {
+    name: 'Website',
+    link: pz.socials.website,
+    icon: GvWorld,
+  },
 ]
+
 
 function onArrowsMounted(splide, index ) {
   const end  = splide.Components.Controller.getEnd() + 1;
@@ -152,7 +125,7 @@ function onArrowsMounted(splide, index ) {
 
 <style scoped>
 .hero {
-  background-image: url(@/assets/images/projects/costume/costume-backdrop.jpg);
-  background-size: 110%;
+  background-image: url(@/assets/images/projects/pz/pz-backdrop_.png);
+  background-size: contain;
 }
 </style>

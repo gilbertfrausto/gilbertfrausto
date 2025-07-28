@@ -6,17 +6,17 @@
 
     <div class="flex flex-col flex-wrap">
       <div 
-        v-for="item in all" 
+        v-for="item in ALL_PROJECT_TILES" 
         class="flex flex-row relative"
       >
         <div v-for="project in item"
           @click="openModal(project.name)"
           :class="[
-            'lg:w-30 lg:h-30 w-20 h-20  bg-transparent m-2 border-2 border-transparent rounded-2xl relative',
+            'lg:w-30 lg:h-30 w-20 h-20  bg-transparent m-2  rounded-2xl relative',
             'cursor-pointer transition-all duration-300 opacity-0 animate-fade-in',
             'bg-contain bg-no-repeat',
-            'after:rounded-2xl',
-            project.name === BLANK ? 'bg-transparent hidden lg:flex' : 'tile bg-black hover:shadow-2xl hover:scale-110 hover:border-white'
+            'after:rounded-2xl after:transition-all',
+            project.name === PROJECTS.BLANK ? 'bg-transparent hidden lg:flex' : 'tile bg-black hover:shadow-2xl hover:scale-110'
           ]"
           :style="{ 
             backgroundImage: `url(${project.img})`,
@@ -56,18 +56,18 @@
           >
             <DialogPanel
               :class="[
-                'w-full md:w-2/3 relative transform rounded-lg bg-black-dull text-left align-middle shadow-xl', 
+                'w-10/12 h-10/12 md:w-2/3 relative transform rounded-lg bg-black-dull text-left align-middle shadow-xl', 
                 'border-2',
                 'transition-all modal-border-efx',
                 modalAnimation ? 'active' : 'inactive'
               ]"
             >
- 
+
               <!-- PROJECT COMPONENTS -->
-              <Costume v-if="project === PROJECTS.COSTUME" :name="project"/>
+              <Costume v-if="project === PROJECTS.COSTUME" :name="project" :closeModal="closeModal"/>
               <Google v-else-if="project === PROJECTS.GOOGLE" :name="project"/>
               <Bb v-else-if="project === PROJECTS.BB" :name="project"/>
-              <Pz v-else-if="project === PROJECTS.PZ" :name="project"/>
+              <Pz v-else-if="project === PROJECTS.PZ" :name="project" :closeModal="closeModal"/>
 
               <div v-else>no project</div>
             </DialogPanel>
@@ -82,7 +82,6 @@
 
 <script setup>
 import { BxArrowBack } from '@kalimahapps/vue-icons';
-import { ClCloseLg } from '@kalimahapps/vue-icons';
 import { storeToRefs } from 'pinia';
 import {
   TransitionRoot,
@@ -94,10 +93,12 @@ import {
 import Costume from '@/components/projects/Costume.vue';
 import Google from '@/components/projects/Google.vue';
 import Bb from '@/components/projects/Bb.vue';
-import Pz from '@/components/projects/Pz..vue';
+import Pz from '@/components/projects/Pz.vue';
 import Backdrop from '@/components/Backdrop.vue';
 import { ICON_BUTTON_STYLES } from '@/classes/button';
 import useAppStore from '@/store/app-store';
+
+import { PROJECTS, ALL_PROJECT_TILES } from '@/const';
 
 // Default theme
 import '@splidejs/vue-splide/css';
@@ -105,8 +106,6 @@ import '@splidejs/vue-splide/css';
 // or only core styles
 import '@splidejs/vue-splide/css/core';
 
-
-const BLANK = 'blank';
 const DELAY = 150;
 
 const store = useAppStore();
@@ -115,46 +114,6 @@ const {setActive, setProject, setModalAnimation} = store;
 
 // MOVE TO CONSTANTS FILE
 
-const PROJECTS = {
-  COSTUME: 'Costume',
-  PZ: 'Prizoners',
-  GOOGLE: 'Google',
-  BB: 'BattleBlocks'
-};
-
-const all = {
-  projects: [
-    {
-      name: PROJECTS.COSTUME,
-      img: 'src/assets/images/projects/costume.jpg',
-      project_index: 1
-    },
-    {
-      name: PROJECTS.PZ,
-      img: 'src/assets/images/projects/pz-logo.png',
-      project_index: 2
-    },
-    {
-      name: BLANK
-    }
-  ],
-  projects_row_2: [
-    {
-      name: BLANK
-    },
-    {
-      name: PROJECTS.GOOGLE,
-      img: 'src/assets/images/projects/google.jpg',
-      project_index: 3
-    },
-    {
-      name: PROJECTS.BB,
-      img: 'src/assets/images/projects/bb.png',
-      project_index: 4
-    },
-
-  ]
-}
 
 function closeModal() {
   setModalAnimation(false)
@@ -176,9 +135,9 @@ function openModal(name) {
     height: 102%;
     top: 0;
     opacity: 0;
-    /* border: 2px solid white; */
+    border: 4px solid var(--color-tron);
     background-color: transparent;
-    transition: all .5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    /* transition: all .5s cubic-bezier(0.55, 0.055, 0.675, 0.19); */
   }
   &:hover {
     &:after {
