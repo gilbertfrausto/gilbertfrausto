@@ -1,11 +1,117 @@
 <template>
-  <div class="w-full h-full flex items-center justify-center">
+  <div class="w-full h-full flex flex-col items-center justify-center">
     <router-link to="/">
-      <BxArrowBack class="text-4xl m-3 opacity-100 delay-100 hover:opacity-5 transition animate-fade-in cursor-pointer "/>
-    </router-link>
+      <BxArrowBack class="text-4xl m-4 opacity-100 delay-100 hover:opacity-5 transition animate-fade-in cursor-pointer "/>
+    </router-link>  
+
+    <div 
+      class="about"
+      :class="[
+        'opacity-0 md:w-[50%] w-3/4 flex flex-col flex-wrap bg-black-dull/70 rounded-xl border',
+        ' border-white shadow-2xl p-5 relative animate-fade-in',
+        setActive && 'active'
+      ]"
+    >
+      <div class="flex flex-col items-center">
+        <h3 class="text-white font-lex text-md w-full py-3">{{CONTACT_DATA.description}}</h3>
+        <div class="w-full flex flex-row items-start justify-start relative">
+          <a v-for="link in CONTACT" :key="link.name" class="" target="_blank" :href="link.link">
+            <component :is="link.icon" class="text-xl m-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"/>
+          </a>
+        </div>
+      </div>
+    </div>
+
   </div>
+  
 </template>
 <script setup>
-import { BxArrowBack } from '@kalimahapps/vue-icons';
+import { BxArrowBack, MdOutlinedAlternateEmail, AkLinkedInV1Fill, ThGithub, FaBandsXTwitter } from '@kalimahapps/vue-icons';
+import { ABOUT_DATA, CONTACT_DATA } from '@/const';
+import { ref } from 'vue';
+
+const setActive = ref(false);
+
+setTimeout(() => {
+  setActive.value = true;
+}, 500);
+
+const CONTACT = [
+  {
+    name: 'Email',
+    link: CONTACT_DATA.email,
+    icon: MdOutlinedAlternateEmail
+  },
+  {
+    name: 'LinkedIn',
+    link: CONTACT_DATA.linkedin,
+    icon: AkLinkedInV1Fill
+  },
+  {
+    name: 'GitHub',
+    link: CONTACT_DATA.github,
+    icon: ThGithub
+  },
+  {
+    name: 'Twitter',
+    link: CONTACT_DATA.twitter,
+    icon: FaBandsXTwitter
+  }
+]
+
+
 </script>
-<style></style>
+
+<style>
+.contact {
+    &:before {
+    content: ' ';
+    opacity: 0;
+    top: -10px;
+    right: -30px;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    /* z-index: -1; */
+    position: absolute;
+    background-image: url(../assets/images/border-lg-rounded-right.png);
+    background-size: 100% 100%;
+    transform: translate(0ch, -11mm);
+    animation-delay: 1s;
+  }
+
+  &:after {
+    content: ' ';
+    opacity: 0;
+    left: -30px;
+    bottom: -30px;
+    /* z-index: 0; */
+    width: 100%;
+    height: 100%;
+    /* border-top: white;
+    border-right: white;
+    border-width: 1px; */
+    z-index: -1;
+    /* background-color: #00000000; */
+    /* background: linear-gradient(rgba(255, 255, 255, 0.284), rgba(0, 0, 0, 0)) padding-box, linear-gradient(#ffffff00, #00000000) border-box; */
+    position: absolute;
+    background-image: url(../assets/images/border-lg-rounded-left.png);
+    background-size: 100% 100%;
+    transform: translate(-3ch, -3mm);
+    animation-delay: 1s;
+  }
+
+  &.active {
+    &:after {
+      opacity: 1;
+      transform: translate(0, 0);
+      transition: all 0.5s cubic-bezier(.44,.32,.13,.75);
+    }
+     &:before {
+      opacity: 1;
+      transform: translate(0ch, -5mm);
+      transition: all 0.5s cubic-bezier(.44,.32,.13,.75);
+    }
+  }
+}
+</style>

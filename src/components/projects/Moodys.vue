@@ -10,7 +10,7 @@
         <p class="text-2xl text-white-dull font-lex">
           {{name}}
         </p>
-        <p class="text-xl text-white-dull/50 font-lex">{{google.tags.join(', ')}}</p>  
+        <p class="text-xl text-white-dull/50 font-lex">{{moodys.tags.join(', ')}}</p>  
       </div>
 
       <!-- BODY TEXT -->
@@ -18,26 +18,16 @@
         <div class="flex flex-col w-full p-4">
           <div class="pb-4">
             <div class="flex flex-row items-center">
-              <h3 class="font-lex text-white">{{ google.projects.glue.name }}</h3>
+              <h3 class="font-lex text-white">{{ moodys.projects.riskcalc.name }}</h3>
               <!-- <a class="mx-2" target="_blank" :href="google.socials.website">
                 <GvWorld class="text-xl my-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"/>
               </a> -->
             </div>
 
             <p class="font-kode text-sm  text-white-dull">
-              {{ google.projects.glue.description }} 
+              {{ moodys.projects.riskcalc.description }} 
             </p>
-            <p class="text-sm text-white/50 font-kode pt-2">{{google.projects.glue.stack}}</p>  
-          </div>
-          <div class="py-4">
-            <div class="flex flex-row items-center">
-              <h3 class="font-lex text-white">{{ google.projects.presubmit.name }}</h3>
-            </div>
-
-            <p class="font-kode text-sm  text-white-dull">
-              {{ google.projects.presubmit.description }} 
-            </p>
-            <p class="text-sm text-white/50 font-kode pt-2">{{google.projects.presubmit.stack}}</p>  
+            <p class="text-sm text-white/50 font-kode pt-2">{{moodys.projects.riskcalc.stack}}</p>  
           </div>
         </div>
       </div>
@@ -67,8 +57,8 @@ import { SiOpensea, SiInstagram, SiDiscord, SiYoutube, FaBandsXTwitter, GvWorld,
 import { Splide, SplideSlide,  } from '@splidejs/vue-splide';
 import { ref } from 'vue';
 
-const {pz, google} = PROJECTS_DATA;
-const startEnd  = pz.images.length + 1;
+const {moodys, google} = PROJECTS_DATA;
+const startEnd  = google.images.length + 1;
 const startRate = Math.min( 1 / startEnd, 1 );
 const width = ref(`${String( 100 * startRate )}%`);
 
@@ -98,7 +88,8 @@ function onArrowsMounted(splide, index ) {
 
 <style scoped>
 .hero {
-  background-image: url(@/assets/images/projects/google/google-banner.jpg);
+  background-image: url(@/assets/images/projects/moodys/moody_bd.webp);
+  /* background-repeat: no-repeat; */
   background-size: contain;
 }
 </style>

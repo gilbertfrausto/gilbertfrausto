@@ -15,10 +15,20 @@
 
       <!-- BODY TEXT -->
       <div class="flex flex-auto overflow-scroll md:flex-row flex-col items-start justify-between">
-        <div class="flex flex-col md:w-1/2 w-full p-4">
-          <p class="font-kode text-sm text-white-dull">
-            {{ pz.description }}
-          </p>
+        <div class="flex flex-col md:w-1/2 w-full px-4">
+          <div class="">
+            <div class="flex flex-row items-center">
+              <h3 class="font-lex text-white">{{ pz.projects.nft_game.name }}</h3>
+              <a class="mx-2" target="_blank" :href="pz.socials.website">
+                <GvWorld class="text-xl my-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"/>
+              </a>
+            </div>
+
+            <p class="font-kode text-sm  text-white-dull">
+              {{ pz.projects.nft_game.description }} 
+            </p>
+            <p class="text-sm text-white/50 font-kode pt-2">{{pz.projects.nft_game.stack}}</p>  
+          </div>
         </div>
 
         
@@ -107,11 +117,12 @@ const SOCIALS = [
     link: pz.socials.twitter,
     icon: FaBandsXTwitter,
   },
-  {
-    name: 'Website',
-    link: pz.socials.website,
-    icon: GvWorld,
-  },
+  // TODO might need to aadd this back, but still like this to be in the project data
+  // {
+  //   name: 'Website',
+  //   link: pz.socials.website,
+  //   icon: GvWorld,
+  // },
 ]
 
 

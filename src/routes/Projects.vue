@@ -56,7 +56,7 @@
           >
             <DialogPanel
               :class="[
-                'w-10/12 h-10/12 md:w-2/3 relative transform rounded-lg bg-black-dull text-left align-middle shadow-xl', 
+                'w-10/12 h-10/12 md:w-2/3 relative transform rounded-lg bg-black-dull/80 text-left align-middle shadow-xl', 
                 'border-2',
                 'transition-all modal-border-efx',
                 modalAnimation ? 'active' : 'inactive'
@@ -65,8 +65,10 @@
 
               <!-- PROJECT COMPONENTS -->
               <Costume v-if="project === PROJECTS.COSTUME" :name="project" :closeModal="closeModal"/>
-              <Google v-else-if="project === PROJECTS.GOOGLE" :name="project"/>
-              <Bb v-else-if="project === PROJECTS.BB" :name="project"/>
+              <Google v-else-if="project === PROJECTS.GOOGLE" :name="project"  :closeModal="closeModal"/>
+              <Bb v-else-if="project === PROJECTS.BB" :name="project"  :closeModal="closeModal"/>
+              <Moodys v-else-if="project === PROJECTS.MOODYS" :name="project"  :closeModal="closeModal"/>
+              <ForestRoad v-else-if="project === PROJECTS.FOREST_ROAD" :name="project"  :closeModal="closeModal"/>
               <Pz v-else-if="project === PROJECTS.PZ" :name="project" :closeModal="closeModal"/>
 
               <div v-else>no project</div>
@@ -105,6 +107,8 @@ import '@splidejs/vue-splide/css';
 
 // or only core styles
 import '@splidejs/vue-splide/css/core';
+import Moodys from '@/components/projects/Moodys.vue';
+import ForestRoad from '@/components/projects/ForestRoad.vue';
 
 const DELAY = 150;
 
@@ -153,20 +157,20 @@ function openModal(name) {
   /* background-image: radial-gradient(circle at 22% 28%, #8C52FF 0%, #001B85 69%, #000000 99%); */
   /* border: 2px solid white; */
     &:before {
-    content: ' ';
-    opacity: 0;
-    top: -10px;
-    right: -30px;
-    z-index: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    position: absolute;
-    background-image: url(../assets/images/border-lg-rounded-right.png);
-    background-size: 100% 100%;
-    transform: translate(0ch, -11mm);
-    animation-delay: 1s;
-  }
+      content: ' ';
+      opacity: 0;
+      top: -10px;
+      right: -30px;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      position: absolute;
+      background-image: url(../assets/images/border-lg-rounded-right.png);
+      background-size: 100% 100%;
+      transform: translate(0ch, -11mm);
+      animation-delay: 1s;
+    }
 
   &:after {
     content: ' ';

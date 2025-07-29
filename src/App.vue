@@ -1,17 +1,19 @@
 <template>
-  <!-- HOME BUTTON -->
-  <NavBar />
+  <div class="main w-full h-full relative overflow-hidden bg-app-bg dark:bg-app-bg">
+    <!-- BG -->
+    <Gemini />
+    <Hero />
+    
+    <!-- HOME BUTTON -->
+    <NavBar />
 
-  <!-- VIEWS -->
-  <main class="w-full h-full">
-    <RouterView />
-  </main>
+    <!-- VIEWS -->
+    <main class="w-full h-full relative">
+      <RouterView />
+    </main>
 
-  <!-- BG -->
-  <Gemini class="-z-[1]"/>
-  <Hero />
-
-  <Footer />  
+    <Footer />  
+  </div>
 </template>
 
 <script setup>
@@ -22,4 +24,10 @@ import Gemini from '@/components/Gemini.vue';
 </script>
 
 <style scoped>
+/* .main {
+  background-image: radial-gradient(at 50% 100%, #393964 0, #000 100%);
+  &.dark {
+    background-image: linear-gradient(0deg, #accbee 0, #e7f0fd);
+  }
+} */
 </style>

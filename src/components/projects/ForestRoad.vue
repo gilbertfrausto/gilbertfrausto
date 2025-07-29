@@ -10,36 +10,67 @@
         <p class="text-2xl text-white-dull font-lex">
           {{name}}
         </p>
-        <p class="text-xl text-white-dull/50 font-lex">{{bb.tags.join(', ')}}</p>  
+        <p class="text-xl text-white-dull/50 font-lex">{{forest_road.tags.join(', ')}}</p>  
       </div>
 
       <!-- BODY TEXT -->
       <div class="flex flex-auto overflow-scroll md:flex-row flex-col items-start justify-between">
-        <div class="flex flex-col md:w-1/2 w-full px-4">
-          <div class="">
-            <div class="flex flex-row items-center">
-              <h3 class="font-lex text-white">{{ pz.projects.nft_game.name }}</h3>
-              <a class="mx-2" target="_blank" :href="pz.socials.website">
-                <GvWorld class="text-xl my-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"/>
-              </a>
+        <div class="flex flex-col md:w-[60%] w-full px-4">
+            
+            <div class="">
+                <div class="flex flex-row items-center">
+                    <h3 class="font-lex text-white">{{ forest_road.projects.notables.name }}</h3>
+                    <a class="mx-2" target="_blank" :href="forest_road.socials.website">
+                        <GvWorld class="text-xl my-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"/>
+                    </a>
+                </div>
+
+                <p class="font-kode text-sm  text-white-dull">
+                {{ forest_road.projects.notables.description }} 
+                </p>
+                <p class="text-sm text-white/50 font-kode pt-2">{{forest_road.projects.notables.stack}}</p>  
             </div>
 
-            <p class="font-kode text-sm  text-white-dull">
-              {{ pz.projects.nft_game.description }} 
-            </p>
-            <p class="text-sm text-white/50 font-kode pt-2">{{pz.projects.nft_game.stack}}</p>  
-          </div>
+          <!-- BEN BALLER -->
+            <div class="py-4">
+                <div class="flex flex-row items-center">
+                    <h3 class="font-lex text-white">{{ forest_road.projects.ben_baller.name }}</h3>
+                    <a class="mx-2" target="_blank" :href="forest_road.projects.ben_baller.socials.opensea">
+                        <SiOpensea class="text-xl my-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"/>
+                    </a>
+                </div>
+
+                <p class="font-kode text-sm  text-white-dull">
+                {{ forest_road.projects.ben_baller.description }} 
+                </p>
+                <p class="text-sm text-white/50 font-kode pt-2">{{forest_road.projects.ben_baller.stack}}</p>  
+            </div>
+
+            <!-- SHAQ GIVES BACK -->
+            <div class="py-4">
+                <div class="flex flex-row items-center">
+                    <h3 class="font-lex text-white">{{ forest_road.projects.shaq_gives_back.name }}</h3>
+                    <a class="mx-2" target="_blank" :href="forest_road.projects.shaq_gives_back.socials.opensea">
+                        <SiOpensea class="text-xl my-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"/>
+                    </a>
+                </div>
+
+                <p class="font-kode text-sm  text-white-dull">
+                {{ forest_road.projects.shaq_gives_back.description }} 
+                </p>
+                <p class="text-sm text-white/50 font-kode pt-2">{{forest_road.projects.shaq_gives_back.stack}}</p>  
+            </div>
         </div>
 
         
         <!-- IMAGES -->
-        <div class="flex md:w-1/2 w-full p-4 relative">
+        <div class="flex md:w-[40%] w-full p-4 relative">
           <Splide 
             :options="{ type: 'fade', rewind: true, height: 'auto', hasTrack: false, paganiation: false }" 
             aria-label="My Favorite Images"
             @splide:move="onArrowsMounted"
           >
-            <SplideSlide v-for="(image, index) in bb.images" :key="index">
+            <SplideSlide v-for="(image, index) in forest_road.images" :key="index" class="flex items-center justify-center">
               
               <iframe v-if="image.video" :src="image.src" class="rounded-lg w-full h-full" controls></iframe>
               <img v-else :src="image.src" :alt="image.alt" class="rounded-lg w-full" />
@@ -89,8 +120,8 @@ import { SiOpensea, SiInstagram, SiDiscord, SiYoutube, FaBandsXTwitter, GvWorld,
 import { Splide, SplideSlide,  } from '@splidejs/vue-splide';
 import { ref } from 'vue';
 
-const {pz, bb} = PROJECTS_DATA;
-const startEnd  = bb.images.length + 1;
+const {forest_road} = PROJECTS_DATA;
+const startEnd  = forest_road.images.length + 1;
 const startRate = Math.min( 1 / startEnd, 1 );
 const width = ref(`${String( 100 * startRate )}%`);
 
@@ -102,27 +133,26 @@ defineProps({
 
 // ADD TO CONST File, LOOK INTO ADD THE THE ICONS HERE
 const SOCIALS = [
-  {
-    name: 'IG',
-    link: pz.socials.instagram,
-    icon: SiInstagram,
-  },
-  {
-    name: 'Discord',
-    link: pz.socials.discord,
-    icon: SiDiscord,
-  },
+//   {
+//     name: 'IG',
+//     link: forest_road.socials.instagram,
+//     icon: SiInstagram,
+//   },
+//   {
+//     name: 'Discord',
+//     link: forest_road.socials.discord,
+//     icon: SiDiscord,
+//   },
   {
     name: 'X',
-    link: pz.socials.twitter,
+    link: forest_road.socials.twitter,
     icon: FaBandsXTwitter,
   },
-  // TODO might need to aadd this back, but still like this to be in the project data
-  // {
-  //   name: 'Website',
-  //   link: pz.socials.website,
-  //   icon: GvWorld,
-  // },
+//   {
+//     name: 'Website',
+//     link: forest_road.socials.website,
+//     icon: GvWorld,
+//   },
 ]
 
 
@@ -136,7 +166,7 @@ function onArrowsMounted(splide, index ) {
 
 <style scoped>
 .hero {
-  background-image: url(@/assets/images/projects/bb/bb_backdrop.png);
+  background-image: url(@/assets/images/projects/forest-road/forest-backdrop.jpeg);
   background-size: cover;
 }
 </style>
