@@ -1,22 +1,34 @@
 <template>
   <div class="w-full h-full flex flex-col items-center justify-center">
     <router-link to="/">
-      <BxArrowBack class="text-4xl m-4 opacity-100 delay-100 hover:opacity-5 transition animate-fade-in cursor-pointer "/>
+      <BxArrowBack class="text-black-dull dark:text-white-dull text-4xl m-4 opacity-100 delay-100 hover:opacity-5 transition animate-fade-in cursor-pointer "/>
     </router-link>  
 
     <div 
-      class="about"
+      class="about" 
       :class="[
-        'opacity-0 md:w-[50%] w-3/4 flex flex-col flex-wrap bg-black-dull/70 rounded-xl border',
-        ' border-white shadow-2xl p-5 relative animate-fade-in',
+        'opacity-0 md:w-[50%] w-3/4 flex flex-col flex-wrap bg-white/70 dark:bg-black/70 rounded-xl',
+        'shadow-2xl p-5 relative animate-fade-in',
         setActive && 'active'
       ]"
+      :style="{ animationDelay: `${(1) * DELAY}ms` }"
     >
       <div class="flex flex-col items-center">
-        <h3 class="text-white font-lex text-md w-full py-3">{{CONTACT_DATA.description}}</h3>
+        <h3 
+          class="text-black-dull dark:text-white font-lex text-md w-full py-3"
+          :style="{ animationDelay: `${(1) * DELAY}ms` }"
+        >
+          {{CONTACT_DATA.description}}
+        </h3>
         <div class="w-full flex flex-row items-start justify-start relative">
-          <a v-for="link in CONTACT" :key="link.name" class="" target="_blank" :href="link.link">
-            <component :is="link.icon" class="text-xl m-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"/>
+          <a 
+            v-for="(link, index) in CONTACT"
+            :key="link.name"
+            target="_blank"
+            :href="link.link"
+            class="opacity-0 animate-fade-in" 
+            :style="{ animationDelay: `${(index + 2) * DELAY}ms` }">
+            <component :is="link.icon" class="text-black-dull dark:text-white-dull text-2xl m-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"/>
           </a>
         </div>
       </div>
@@ -31,6 +43,7 @@ import { ABOUT_DATA, CONTACT_DATA } from '@/const';
 import { ref } from 'vue';
 
 const setActive = ref(false);
+const DELAY = 100;
 
 setTimeout(() => {
   setActive.value = true;

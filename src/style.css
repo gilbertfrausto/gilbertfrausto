@@ -7,11 +7,46 @@
   .bg-app-bg {
     background-image: linear-gradient(0deg, #accbee 0, #e7f0fd);
 
-    /* This variant is not working */
+    /* TODO add to vars */
     @variant dark {
       background-image: radial-gradient(at 50% 100%, #393964 0, #000 100%);
+      background-image: radial-gradient(at 50% 100%, #2c2c2e 0, #000 100%)
     }
   }
+
+  .particles {
+      background-image: radial-gradient(
+      hsl(180, 1%, 27%),
+      hsl(180, 2%, 12%) 10%,
+      hsla(180, 100%, 80%, 0) 56%
+    );
+    @variant dark {
+      /* background-image: radial-gradient(
+        hsl(180, 100%, 80%),
+        hsl(180, 100%, 80%) 10%,
+        hsla(180, 100%, 80%, 0) 56%
+      ); */
+      background-image: radial-gradient(hsl(0deg 0% 100%), hsl(0deg 0% 91.54%) 10%, hsla(180, 100%, 80%, 0) 56%)
+    }
+  }
+
+  .nav-borders {
+    &:after {
+      background-image: url(./assets/images/border-light-left.png);
+    }
+    &:before {
+      background-image: url(./assets/images/border-light-right.png);
+    }
+    @variant dark {
+      &:after {
+        background-image: url(./assets/images/border.png);
+      }
+      &:before {
+        background-image: url(./assets/images/border-right.png);
+      }
+    }
+  }
+
 }
 
 
@@ -32,6 +67,8 @@
   --animate-float: float 2.5s infinite alternate linear; 
   --animate-pulse-glow: pulse-shadow 2s infinite ease-in-out;
   --animate-background-move: background-move 10s linear infinite alternate;
+  --animate-border-pulse: border-pulse 2s linear infinite alternate;
+  --animate-border-pulse-dark: border-pulse-dark 2s linear infinite alternate;
 
   /* * update or remove this stagger line */
   --transition-stagger: all .3s cubic-bezier(0.47, 0, 0.745, 0.715);
@@ -104,6 +141,23 @@
       background-position: 100% 0;
     }
   }
+
+  @keyframes border-pulse {
+    0% {
+      border-color: rgba(255, 255, 255, 0);
+    }
+    100 % {
+      border-color: rgba(255, 255, 255, 1);
+    }
+  }
+   @keyframes border-pulse-dark {
+    0% {
+      border-color: rgba(0, 0, 0, 0);
+    }
+    100 % {
+      border-color: rgba(0, 0, 0, 1);
+    }
+  }
 }
 
 /* .pulse-glow {
@@ -173,7 +227,6 @@ html, body, #app {
 }
 
 .my-carousel-progress-bar {
-  background: var(--color-tron);
   height: 4px;
   transition: width 400ms ease;
   width: 0;

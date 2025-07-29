@@ -10,10 +10,8 @@
           <router-link :to="link.path"  v-if="link.name !== 'Home'">
             {{link.name}}
         </router-link>
-        <!-- <div class="w-full h-full left-0 texture-bg-inner absolute top-0 -z-[1]"></div> -->
       </li>
       </ul>
-      <!-- <div class="w-full h-full texture-bg-inner absolute top-0"></div> -->
     </nav>
   </div>
 </template>
@@ -74,9 +72,8 @@ onMounted(() => {
   }
 }
 
+/* TODO MOVE TO THEME FILE */
 .bg {
-  /* background-image: radial-gradient(circle at 22% 28%, #8C52FF 0%, #001B85 69%, #000000 99%); */
-  /* border: 2px solid white; */
   &:after {
     content: ' ';
     opacity: 0;
@@ -85,14 +82,8 @@ onMounted(() => {
     z-index: 0;
     width: 100%;
     height: 100%;
-    /* border-top: white;
-    border-right: white;
-    border-width: 1px; */
     z-index: -1;
-    /* background-color: #00000000; */
-    /* background: linear-gradient(rgba(255, 255, 255, 0.284), rgba(0, 0, 0, 0)) padding-box, linear-gradient(#ffffff00, #00000000) border-box; */
     position: absolute;
-    background-image: url(../assets/images/border.png);
     background-size: 100% 100%;
     transform: translate(-3ch, -3mm);
   }
@@ -106,9 +97,9 @@ onMounted(() => {
     height: 100%;
     z-index: -1;
     position: absolute;
-    background-image: url(../assets/images/border-right.png);
     background-size: 100% 100%;
     transform: translate(0ch, -11mm);
+    
   }
   &:hover {
     &:after {

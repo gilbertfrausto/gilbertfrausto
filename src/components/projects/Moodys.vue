@@ -1,33 +1,45 @@
 <template>
   <div class="w-full h-full flex flex-col items-center justify-center">
     <!-- HERO -->
-    <div class="hero w-full h-30 rounded-t-lg"></div>
+    <div class="w-full h-30 opacity-0 animate-fade-in" :style="{ animationDelay: `${1 * DELAY}ms` }">
+      <div class="hero w-full h-30 rounded-t-lg"></div>
+    </div>
 
     <!-- BODY -->
     <div class="w-full">
       <!-- TITLE -->
       <div class="w-full p-4">
-        <p class="text-2xl text-white-dull font-lex">
+        <p class="text-2xl text-black-dull dark:text-white-dull font-lex opacity-0 animate-fade-in" :style="{ animationDelay: `${1 * DELAY}ms` }">
           {{name}}
         </p>
-        <p class="text-xl text-white-dull/50 font-lex">{{moodys.tags.join(', ')}}</p>  
+        <p 
+          class="text-xl text-black-dull/50 dark:text-white-dull/50 font-lex opacity-0 animate-fade-in"
+          :style="{ animationDelay: `${2 * DELAY}ms` }"
+        >
+          {{moodys.tags.join(', ')}}
+        </p>  
       </div>
 
       <!-- BODY TEXT -->
       <div class="flex flex-auto overflow-scroll md:flex-row flex-col items-start justify-between">
         <div class="flex flex-col w-full p-4">
           <div class="pb-4">
-            <div class="flex flex-row items-center">
-              <h3 class="font-lex text-white">{{ moodys.projects.riskcalc.name }}</h3>
-              <!-- <a class="mx-2" target="_blank" :href="google.socials.website">
-                <GvWorld class="text-xl my-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"/>
-              </a> -->
+            <div class="flex flex-row items-center opacity-0 animate-fade-in" :style="{ animationDelay: `${3 * DELAY}ms` }">
+              <h3 class="font-lex text-black dark:text-white">{{ moodys.projects.riskcalc.name }}</h3>
+              <a class="mx-2" target="_blank" :href="google.socials.riskcalc">
+                <GvWorld class="text-black-dull dark:text-white-dull text-xl my-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"/>
+              </a>
             </div>
 
-            <p class="font-kode text-sm  text-white-dull">
+            <p class="font-kode text-sm text-black-dull dark:text-white-dull opacity-0 animate-fade-in" :style="{ animationDelay: `${4 * DELAY}ms` }">
               {{ moodys.projects.riskcalc.description }} 
             </p>
-            <p class="text-sm text-white/50 font-kode pt-2">{{moodys.projects.riskcalc.stack}}</p>  
+            <p 
+              class="text-sm text-black/50 dark:text-white/50 font-kode pt-2 opacity-0 animate-fade-in"
+              :style="{ animationDelay: `${5 * DELAY}ms` }"
+            >
+              {{moodys.projects.riskcalc.stack}}
+            </p>  
           </div>
         </div>
       </div>
@@ -35,14 +47,20 @@
       <!-- LINKS -->
       <div class="flex flex-row items-center justify-between p-4">
         <div class="flex flex-row items-center">
-          <a v-for="social in SOCIALS" class="flex flex-row " target="_blank" :href="social.link">
-            <component :is="social.icon" class="text-xl m-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"/>
+          <a 
+            v-for="(social, index) in SOCIALS" 
+            class="flex flex-row opacity-0 animate-fade-in"
+            target="_blank" 
+            :href="social.link" 
+            :style="{ animationDelay: `${(index + 5)* DELAY}ms` }"
+          >
+            <component :is="social.icon" class="text-black-dull dark:text-white-dull text-xl m-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"/>
           </a>
         </div>
         
         <div class="flex">
           <a @click="closeModal()" to="/">
-            <BxLeftArrowAlt class="text-2xl m-2 cursor-pointer hover:scale-150 transition-all"/>
+            <BxLeftArrowAlt class="text-black-dull dark:text-white-dull text-2xl m-2 cursor-pointer hover:scale-150 transition-all"/>
           </a>
         </div>
       </div>
@@ -61,6 +79,7 @@ const {moodys, google} = PROJECTS_DATA;
 const startEnd  = google.images.length + 1;
 const startRate = Math.min( 1 / startEnd, 1 );
 const width = ref(`${String( 100 * startRate )}%`);
+const DELAY = 100; // Delay in milliseconds
 
 defineProps({
   name: String,

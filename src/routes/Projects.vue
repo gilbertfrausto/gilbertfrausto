@@ -1,7 +1,7 @@
 <template>
   <div class="w-full h-full flex flex-col items-center justify-center ">
     <router-link to="/">
-      <BxArrowBack class="text-4xl m-3 opacity-0 delay-300 hover:opacity-5 transition animate-fade-in cursor-pointer "/>
+      <BxArrowBack class="text-black-dull dark:text-white-dull text-4xl m-3 opacity-0 delay-300 hover:opacity-5 transition animate-fade-in cursor-pointer "/>
     </router-link>
 
     <div class="flex flex-col flex-wrap">
@@ -56,8 +56,8 @@
           >
             <DialogPanel
               :class="[
-                'w-10/12 h-10/12 md:w-2/3 relative transform rounded-lg bg-black-dull/80 text-left align-middle shadow-xl', 
-                'border-2',
+                'w-10/12 h-10/12 md:w-2/3 relative transform rounded-lg bg-white dark:bg-black/60 text-left align-middle shadow-xl', 
+                'border-2 border-black dark:border-white animate-border-pulse dark:animate-border-pulse-dark',
                 'transition-all modal-border-efx',
                 modalAnimation ? 'active' : 'inactive'
               ]"

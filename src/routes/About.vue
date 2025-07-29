@@ -1,22 +1,47 @@
 <template>
   <div class="w-full h-full flex flex-col items-center justify-center">
     <router-link to="/">
-      <BxArrowBack class="text-4xl m-4 opacity-100 delay-100 hover:opacity-5 transition animate-fade-in cursor-pointer "/>
+      <BxArrowBack class="text-black-dull dark:text-white-dull text-4xl m-4 opacity-100 delay-100 hover:opacity-5 transition animate-fade-in cursor-pointer "/>
     </router-link>  
 
     <div 
       class="about"
       :class="[
-        'opacity-0 w-[70%] flex flex-col flex-wrap bg-black-dull/70 rounded-xl border',
-        ' border-white shadow-2xl p-5 relative animate-fade-in',
+        'opacity-0 w-[70%] flex flex-col flex-wrap bg-white-dull/70 dark:bg-black/70 rounded-xl animate-fade-in',
+        ' shadow-2xl p-5 relative',
         setActive && 'active'
       ]"
     >
-      <p class="text-white-dull font-lex text-md w-full">{{ ABOUT_DATA.description }}</p>
-      <h3 class="text-white font-lex text-md w-ful py-3">{{ ABOUT_DATA.langs_and_framewoks }}</h3>
-      <p class="font-kode text-white-dull w-full text-sm py-3">{{ ABOUT_DATA.skills.join(',') }}</p>
-      <h3 class="text-white font-lex text-md w-full py-3">{{ ABOUT_DATA.ai }}</h3>
-      <p class="font-kode text-white-dull w-full text-sm py-3">{{ ABOUT_DATA.ai_tools.join(',') }}</p>
+      <p 
+        class="text-black-dull dark:text-white-dull font-lex text-md w-full opacity-0 animate-fade-in" 
+        :style="{ animationDelay: `${(1) * DELAY}ms` }"
+      >
+        {{ ABOUT_DATA.description }}
+      </p>
+      <h3 
+        class="text-black dark:text-white font-lex text-md w-full py-3 opacity-0 animate-fade-in"
+        :style="{ animationDelay: `${(2) * DELAY}ms` }"
+      >
+        {{ ABOUT_DATA.langs_and_framewoks }}
+      </h3>
+      <p 
+        class="font-kode text-black-dull dark:text-white-dull w-full text-sm py-3 break-all whitespace-normal opacity-0 animate-fade-in"
+        :style="{ animationDelay: `${(3) * DELAY}ms` }"
+      >
+        {{ ABOUT_DATA.skills.join(',') }}
+      </p>
+      <h3 
+        class="text-black dark:text-white font-lex text-md w-full py-3 opacity-0 animate-fade-in"
+        :style="{ animationDelay: `${(4) * DELAY}ms` }"
+      >
+        {{ ABOUT_DATA.ai }}
+      </h3>
+      <p 
+        class="font-kode text-black-dull dark:text-white-dull w-full text-sm py-3 opacity-0 animate-fade-in"
+        :style="{ animationDelay: `${(5) * DELAY}ms` }"
+      >
+        {{ ABOUT_DATA.ai_tools.join(',') }}
+      </p>
     </div>
   </div>
   
@@ -27,6 +52,7 @@ import { ABOUT_DATA } from '@/const';
 import { ref } from 'vue';
 
 const setActive = ref(false);
+const DELAY = 100;
 
 setTimeout(() => {
   setActive.value = true;

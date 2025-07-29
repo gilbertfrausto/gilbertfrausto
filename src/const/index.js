@@ -161,6 +161,7 @@ export const PROJECTS_DATA = {
       images: [],
       socials: {
         website: 'https://www.moodys.com',
+        riskcalc: 'https://riskcalcplus.moodysanalytics.com'
       }
     },
     forest_road: {
@@ -314,6 +315,6 @@ export const CONTACT_DATA = {
   email: 'mailto:gilbertfrausto@gmail.com',
   phone: '(510) 560-0903',
   github: 'https://github.com/gilbertfrausto',
-  linkedin: 'https://www.linkedin.com/in/gilbertfrausto/',
+  linkedin: 'https://www.linkedin.com/in/gilbert-frausto/',
   twitter: 'https://x.com/gilbertfrausto3',
 }
