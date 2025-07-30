@@ -9,6 +9,8 @@
 <script setup></script>
 
 <style lang="scss">
+@use "sass:math";
+
 .container-part {
   // position: relative;
 }
@@ -76,22 +78,22 @@
 
   @for $i from 1 through $particleNum {
     &:nth-child(#{$i}) {
-      $circleSize: random($particleBaseSize);
+      $circleSize: math.random($particleBaseSize);
       width: $circleSize + px;
       height: $circleSize + px;
 
-      $startPositionY: random(10) + 75;
+      $startPositionY: math.random(10) + 75;
       $framesName: "move-frames-" + $i;
-      $moveDuration: 28000 + random(9000) + ms;
+      $moveDuration: 28000 + math.random(9000) + ms;
 
       animation-name: #{$framesName};
       animation-duration: $moveDuration;
-      animation-delay: random(37000) + ms;
+      animation-delay: math.random(37000) + ms;
 
       @keyframes #{$framesName} {
         from {
           transform: translate3d(
-            #{random(100) + vw},
+            #{math.random(100) + vw},
             #{$startPositionY + vh},
             0
           );
@@ -99,15 +101,15 @@
 
         to {
           transform: translate3d(
-            #{random(100) + vw},
-            #{- $startPositionY - random(30) + vh},
+            #{math.random(100) + vw},
+            #{- $startPositionY - math.random(30) + vh},
             0
           );
         }
       }
 
       .circle {
-        animation-delay: random(1000) + ms;
+        animation-delay: math.random(1000) + ms;
       }
     }
   }
