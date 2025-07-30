@@ -42,12 +42,22 @@
       >
         {{ ABOUT_DATA.ai_tools.join(',') }}
       </p>
+      <div class=" border-t border-black-dull/50 dark:border-white-dull/50 w-full px-2 my-3"></div>
+      <div class="flex flex-row items-center justify-center opacity-0 animate-fade-in py-3" :style="{ animationDelay: `${(6) * DELAY}ms` }">
+        <p class="text-black dark:text-white font-lex text-md opacity-0 animate-fade-in">Resume</p>
+        <a :href="ABOUT_DATA.resume_url" target="_blank">
+          <BsFileEarmarkPersonFill
+            class="text-black-dull dark:text-white-dull text-2xl m-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"
+          />
+        </a>
+      </div>
+    
     </div>
   </div>
   
 </template>
 <script setup>
-import { BxArrowBack } from '@kalimahapps/vue-icons';
+import { BxArrowBack, BsFileEarmarkPersonFill } from '@kalimahapps/vue-icons';
 import { ABOUT_DATA } from '@/const';
 import { ref } from 'vue';
 

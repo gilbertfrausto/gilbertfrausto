@@ -272,7 +272,9 @@ export const ALL_PROJECT_TILES = {
       img: 'src/assets/images/projects/moody.jpg',
       project_index: 3
     },
-    // PROJECT NEEDS MORE ASSETSs
+
+  
+    // TODO PROJECT NEEDS MORE ASSETSs
     // {
     //   name: PROJECTS.BB,
     //   img: 'src/assets/images/projects/bb.png',
@@ -286,27 +288,32 @@ export const ABOUT_DATA = {
   ai: `AI tools and integrations`,
   langs_and_framewoks: 'Languages and frameworks',
   ai_tools: [
-    'ChatGPT',
+    'Ollama',
+    'Gemma',
     'Claude',
     'Gemini',
-    'DeepAI',
-    'OpenAI API',
-    'Hugging Face Transformers'
+    'ChatGPT',
+    'OpenAI',
+    'OpenRouter',
+    'DeepSeek',
+    'Hugging Face'
   ],
   skills: [
     'C#',
     'JavaScript',
     'Java',
+    'Python',
     'Angular',
     'Vue.js',
     'React',
-    'Unity',
+    'Tailwind CSS',
     'Web3',
     'Solidity',
-    'Python',
     'AWS',
-    'Tailwind CSS',
+    'Google Cloud',
+    'Unity', 
   ],
+  resume_url: 'src/assets/pdf/Gilbert_Frausto_2025.pdf'
 }
 
 export const CONTACT_DATA = {

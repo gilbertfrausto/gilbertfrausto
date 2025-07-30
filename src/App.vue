@@ -26,10 +26,4 @@ import Particles from './components/Particles.vue';
 </script>
 
 <style scoped>
-/* .main {
-  background-image: radial-gradient(at 50% 100%, #393964 0, #000 100%);
-  &.dark {
-    background-image: linear-gradient(0deg, #accbee 0, #e7f0fd);
-  }
-} */
 </style>

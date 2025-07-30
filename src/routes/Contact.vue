@@ -13,14 +13,15 @@
       ]"
       :style="{ animationDelay: `${(1) * DELAY}ms` }"
     >
-      <div class="flex flex-col items-center">
+      <div class="flex flex-col items-center justify-center">
         <h3 
           class="text-black-dull dark:text-white font-lex text-md w-full py-3"
           :style="{ animationDelay: `${(1) * DELAY}ms` }"
         >
           {{CONTACT_DATA.description}}
         </h3>
-        <div class="w-full flex flex-row items-start justify-start relative">
+        <div class=" border-t border-black-dull/50 dark:border-white-dull/50 w-full px-2 my-3"></div>
+        <div class="w-full flex flex-row items-start justify-center relative">
           <a 
             v-for="(link, index) in CONTACT"
             :key="link.name"
