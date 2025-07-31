@@ -4,9 +4,6 @@
     <!-- BG -->
     <Gemini />
     <Hero />
-    
-    <!-- HOME BUTTON -->
-    <!-- <NavBar /> -->
 
     <!-- VIEWS -->
     <main class="w-full h-full relative">
@@ -19,7 +16,6 @@
 
 <script setup>
 import Hero from '@/components/Hero.vue';
-import NavBar from '@/components/NavBar.vue';
 import Footer from '@/components/Footer.vue';
 import Gemini from '@/components/Gemini.vue';
 import Particles from './components/Particles.vue';

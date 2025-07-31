@@ -1,4 +1,4 @@
-import { BxArrowBack, SiDiscord, SiInstagram, SiOpensea, MdOutlinedAlternateEmail, GvWorld, AkLinkedInV1Fill, SiYoutube, ThGithub, FaBandsXTwitter } from '@kalimahapps/vue-icons';
+import { SiDiscord, SiInstagram, SiOpensea, MdOutlinedAlternateEmail, GvWorld, AkLinkedInV1Fill, SiYoutube, ThGithub, FaBandsXTwitter } from '@kalimahapps/vue-icons';
 import costumePose from '@/assets/images/projects/costume/pose.png';
 import costumeColour from '@/assets/images/projects/costume/colour.jpg';
 import costumeAction from '@/assets/images/projects/costume/action.jpg';
@@ -23,11 +23,22 @@ import googleTile from '@/assets/images/projects/google.jpg';
 import forestRoadTile from '@/assets/images/projects/forest_road.png';
 import moodysTile from '@/assets/images/projects/moody.jpg';
 
-import resumeUrl from '@/assets/pdf/Gilbert_Frausto_2025.pdf';
+//! Might not need this and just use static storage like drive
+// import resumeUrl from '@/assets/pdf/Gilbert_Frausto_2025.pdf';
+// TODO add constants to the project data
+export const PROJECTS = {
+  COSTUME: 'Costume',
+  PZ: 'Pris0nerz',
+  GOOGLE: 'Google',
+  BB: 'BattleBlocks',
+  FOREST_ROAD: 'The Forest Road Company',
+  MOODYS: `Moody's`,
+  BLANK: 'Blank'
+};
 
 export const PROJECTS_DATA = {
     costume: {
-      name: 'Costume',
+      name: PROJECTS.COSTUME,
       description: 'Costume is a playful IP with a ton of progress and a couple different prototypes including Unity and Web3.',
       tags: ['Web3', '2D Platformer', 'Unity', 'NFT', 'MMO', 'POLYGON '],
       projects:{
@@ -108,7 +119,7 @@ export const PROJECTS_DATA = {
       ]
     },
     bb: {
-      name: 'Battle Blocks',
+      name: PROJECTS.BB,
       description: 'Battle Blocks was web card battle game',
       tags: ['NFT', 'Web3', '2D'],
       projects: {
@@ -129,15 +140,11 @@ export const PROJECTS_DATA = {
         }
       ],
       socials: {
-        // ig: 'https://www.instagram.com/battleblocks/',
-        // opensea: 'https://opensea.io/collection/battle-blocks',
-        // discord: 'https://discord.gg/battleblocks',
-        // twitter: 'https://x.com/battleblocks',
         website: 'https://battleblocks-ae0b7.web.app/#/'
       }
     },
     google: {
-      name: 'Google',
+      name: PROJECTS.GOOGLE,
       description: 'Google is a multinational technology company that specializes in Internet-related services and products.',
       tags: ['Glue', 'MDC Web Components','Google marketing'],
       images: [],
@@ -162,7 +169,7 @@ export const PROJECTS_DATA = {
       }
     },
     pz: {
-      name: 'Pris0nerz',
+      name: PROJECTS.PZ,
       description: `a dynamic NFT project, where your choices matter, and where it's never too late to change! What you do and who you become rests solely on your shoulders, so your decisions outweigh the randomness of your initial mint. Will you choose the safe route and obey the Warden's Wolves? Or will you rebel, plan your escape and make your way to some secluded island with little miss piggy? Depending on what you choose, your NFT will access exclusive $contraband, which you may choose to morph yourself with or smuggle to other Prisonerz.`,
       tags: ['Web3', 'Vue', 'Polygon', 'NFT', '2D'],
       projects: {
@@ -220,7 +227,7 @@ export const PROJECTS_DATA = {
       ]
     },
     moodys: {
-      name: 'Moody\'s',
+      name: PROJECTS.MOODYS,
       description: 'Moody\'s is a global integrated risk assessment firm that empowers organizations to',
       tags: ['B2B', 'Risk Assesment', 'Banking', 'Finance'],
       projects: {
@@ -249,8 +256,8 @@ export const PROJECTS_DATA = {
       ]
     },
     forest_road: {
-      name: 'The Forest Road Company',
-      tags: ['Web3', 'Ether', 'NFT', 'Marketplace'],
+      name: PROJECTS.FOREST_ROAD,
+      tags: ['Web3', 'Ether', 'NFT', 'Marketplace', 'OpenSea'],
       description: 'Notables was a forest road company that speacialized in building NFT marketplaces and drops for various clients and IPs. Some including DAZN, Shaq, Ben Baller. Notables was later aquired by Candle Media.',
       images: [
         {
@@ -309,17 +316,6 @@ export const PROJECTS_DATA = {
       ],
     }
 }
-
-// TODO add constants to the project data
-export const PROJECTS = {
-  COSTUME: 'Costume',
-  PZ: 'Pris0nerz',
-  GOOGLE: 'Google',
-  BB: 'BattleBlocks',
-  FOREST_ROAD: 'Forest Road',
-  MOODYS: 'Moodys',
-  BLANK: 'Blank'
-};
 
 // TODO ADD TO PROJECT DATA
 export const ALL_PROJECT_TILES = {
@@ -406,7 +402,7 @@ export const ABOUT_DATA = {
     'Google Cloud',
     'Unity', 
   ],
-  resume_url: resumeUrl
+  resume_url: 'https://drive.google.com/file/d/1xdbeckFUdIf9SNOmj0sujwTAJ3PY2y09/view?usp=drive_link'
 };
 
 export const CONTACT_DATA = {
@@ -417,7 +413,7 @@ export const CONTACT_DATA = {
   github: 'https://github.com/gilbertfrausto',
   linkedin: 'https://www.linkedin.com/in/gilbert-frausto/',
   twitter: 'https://x.com/gilbertfrausto3',
-  website: 'https://gilbert-frausto.web.app/'
+  website: 'https://gilbert-frausto.web.app/',
 };
 
 export const CONTACT = [

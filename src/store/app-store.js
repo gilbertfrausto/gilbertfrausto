@@ -6,7 +6,8 @@ const useAppStore = defineStore('app', {
     return {
       active: ref(false),
       project: undefined,
-      modalAnimation: false
+      modalAnimation: false,
+      slideIndex: 1
     }
   },
   actions: {

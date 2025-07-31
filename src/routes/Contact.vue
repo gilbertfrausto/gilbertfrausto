@@ -11,17 +11,16 @@
         'shadow-2xl p-5 relative animate-fade-in',
         setActive && 'active'
       ]"
-      :style="{ animationDelay: `${(1) * DELAY}ms` }"
+      :style="{ animationDelay: `${1 * DELAY}ms` }"
     >
       <div class="flex flex-col items-center justify-center">
         <h3 
           class="text-black-dull dark:text-white font-lex text-md w-full py-3"
-          :style="{ animationDelay: `${(1) * DELAY}ms` }"
+          :style="{ animationDelay: `${1 * DELAY}ms` }"
         >
           {{CONTACT_DATA.description}}
         </h3>
         <div class="w-full flex flex-col items-center justify-center relative">
-          <!-- <img class="w-20 drop-shadow-2xl animate-pulse-glow transition-[filter] absolute" src="../assets/images/pose.png"/> -->
           <div class=" border-t border-black-dull/50 dark:border-white-dull/50 w-full px-2 my-3"></div>
         </div>
         

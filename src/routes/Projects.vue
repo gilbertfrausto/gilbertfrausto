@@ -4,6 +4,7 @@
       <BxArrowBack class="text-black-dull dark:text-white-dull text-4xl m-3 opacity-0 delay-300 hover:opacity-5 transition animate-fade-in cursor-pointer "/>
     </router-link>
 
+    <!-- PROJECT TILES -->
     <div class="flex flex-col flex-wrap">
       <div 
         v-for="item in ALL_PROJECT_TILES" 
@@ -90,14 +91,12 @@ import {
   TransitionChild,
   Dialog,
   DialogPanel,
-  DialogTitle,
 } from '@headlessui/vue';
 import Costume from '@/components/projects/Costume.vue';
 import Google from '@/components/projects/Google.vue';
 import Bb from '@/components/projects/Bb.vue';
 import Pz from '@/components/projects/Pz.vue';
 import Backdrop from '@/components/Backdrop.vue';
-import { ICON_BUTTON_STYLES } from '@/classes/button';
 import useAppStore from '@/store/app-store';
 
 import { PROJECTS, ALL_PROJECT_TILES } from '@/const';
@@ -116,9 +115,6 @@ const store = useAppStore();
 const {active, project, modalAnimation} = storeToRefs(store);
 const {setActive, setProject, setModalAnimation} = store;
 
-// MOVE TO CONSTANTS FILE
-
-
 function closeModal() {
   setModalAnimation(false)
   setActive(false);
@@ -132,6 +128,7 @@ function openModal(name) {
 
 <style scoped>
 .tile {
+  /* TODO Add to tile element with tailwind after: prefix */
   &:after {
     content: '';
     position: absolute;
@@ -141,36 +138,32 @@ function openModal(name) {
     opacity: 0;
     border: 4px solid var(--color-tron);
     background-color: transparent;
-    /* transition: all .5s cubic-bezier(0.55, 0.055, 0.675, 0.19); */
   }
   &:hover {
     &:after {
       opacity: 1;
       z-index: 10;
-      /* box-shadow: 10px 7px 41px 0px rgba(87,209,187,0.58); */
     }
   }
 }
 
 
 .modal-border-efx {
-  /* background-image: radial-gradient(circle at 22% 28%, #8C52FF 0%, #001B85 69%, #000000 99%); */
-  /* border: 2px solid white; */
-    &:before {
-      content: ' ';
-      opacity: 0;
-      top: -10px;
-      right: -30px;
-      z-index: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      position: absolute;
-      background-image: url(../assets/images/border-lg-rounded-right.png);
-      background-size: 100% 100%;
-      transform: translate(0ch, -11mm);
-      animation-delay: 1s;
-    }
+  &:before {
+    content: ' ';
+    opacity: 0;
+    top: -10px;
+    right: -30px;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    position: absolute;
+    background-image: url(../assets/images/border-lg-rounded-right.png);
+    background-size: 100% 100%;
+    transform: translate(0ch, -11mm);
+    animation-delay: 1s;
+  }
 
   &:after {
     content: ' ';
@@ -180,12 +173,7 @@ function openModal(name) {
     z-index: 0;
     width: 100%;
     height: 100%;
-    /* border-top: white;
-    border-right: white;
-    border-width: 1px; */
     z-index: -1;
-    /* background-color: #00000000; */
-    /* background: linear-gradient(rgba(255, 255, 255, 0.284), rgba(0, 0, 0, 0)) padding-box, linear-gradient(#ffffff00, #00000000) border-box; */
     position: absolute;
     background-image: url(../assets/images/border-lg-rounded-left.png);
     background-size: 100% 100%;

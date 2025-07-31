@@ -89,10 +89,10 @@
 
             <!-- Custom buttons -->
             <div class="splide__arrows">
-              <button class="splide__arrow splide__arrow--prev">
+              <button class="splide__arrow splide__arrow--prev" @click="update(true)">
                 <BxRightArrowAlt/>
               </button>
-              <button class="splide__arrow splide__arrow--next">
+              <button class="splide__arrow splide__arrow--next" @click="update(false)">
                 <BxRightArrowAlt/>
               </button>
             </div>
@@ -134,9 +134,11 @@
 </template>
 <script setup>
 import { PROJECTS_DATA, VIDEO_PLATFORM } from '@/const';
+import useAppStore from '@/store/app-store';
 import { SiYoutube, GvWorld, BxRightArrowAlt, BxLeftArrowAlt} from '@kalimahapps/vue-icons';
 
 import { Splide, SplideSlide,  } from '@splidejs/vue-splide';
+import { storeToRefs } from 'pinia';
 import { ref } from 'vue';
 
 const {costume} = PROJECTS_DATA;
@@ -144,6 +146,10 @@ const startEnd  = costume.images.length + 1;
 const startRate = Math.min( 1 / startEnd, 1 );
 const width = ref(`${String( 100 * startRate )}%`);
 const DELAY = 100;
+
+const appStore  = useAppStore();
+const {slideIndex} = storeToRefs(appStore);
+const {setSlideIndex, updateSlideIndex} = appStore;
 
 defineProps({
   name: String,
@@ -154,6 +160,12 @@ function onArrowsMounted(splide, index ) {
   const end  = splide.Components.Controller.getEnd() + 1;
   const rate = Math.min( ( index + 1 ) / end, 1 );
   width.value = `${String( 100 * rate )}%`;
+}
+
+const update = (left) => {
+
+  updateSlideIndex(left, costume.images.length + 1);
+  console.log(slideIndex.value);
 }
 
 </script>

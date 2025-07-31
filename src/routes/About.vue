@@ -9,41 +9,42 @@
       :class="[
         'opacity-0 w-[70%] flex flex-col flex-wrap bg-white-dull/70 dark:bg-black/70 rounded-xl animate-fade-in',
         ' shadow-2xl p-5 relative',
+        '',
         setActive && 'active'
       ]"
     >
       <p 
         class="text-black-dull dark:text-white-dull font-lex text-md w-full opacity-0 animate-fade-in" 
-        :style="{ animationDelay: `${(1) * DELAY}ms` }"
+        :style="{ animationDelay: `${1 * DELAY}ms` }"
       >
         {{ ABOUT_DATA.description }}
       </p>
       <h3 
         class="text-black dark:text-white font-lex text-md w-full py-3 opacity-0 animate-fade-in"
-        :style="{ animationDelay: `${(2) * DELAY}ms` }"
+        :style="{ animationDelay: `${2 * DELAY}ms` }"
       >
         {{ ABOUT_DATA.langs_and_framewoks }}
       </h3>
       <p 
         class="font-kode text-black-dull dark:text-white-dull w-full text-sm py-3 break-all whitespace-normal opacity-0 animate-fade-in"
-        :style="{ animationDelay: `${(3) * DELAY}ms` }"
+        :style="{ animationDelay: `${3 * DELAY}ms` }"
       >
         {{ ABOUT_DATA.skills.join(', ') }}
       </p>
       <h3 
         class="text-black dark:text-white font-lex text-md w-full py-3 opacity-0 animate-fade-in"
-        :style="{ animationDelay: `${(4) * DELAY}ms` }"
+        :style="{ animationDelay: `${4 * DELAY}ms` }"
       >
         {{ ABOUT_DATA.ai }}
       </h3>
       <p 
         class="font-kode text-black-dull dark:text-white-dull w-full text-sm py-3 opacity-0 animate-fade-in"
-        :style="{ animationDelay: `${(5) * DELAY}ms` }"
+        :style="{ animationDelay: `${5 * DELAY}ms` }"
       >
         {{ ABOUT_DATA.ai_tools.join(', ') }}
       </p>
       <div class=" border-t border-black-dull/50 dark:border-white-dull/50 w-full px-2 my-3"></div>
-      <div class="flex flex-row items-center justify-center opacity-0 animate-fade-in py-3" :style="{ animationDelay: `${(6) * DELAY}ms` }">
+      <div class="flex flex-row items-center justify-center opacity-0 animate-fade-in py-3" :style="{ animationDelay: `${6 * DELAY}ms` }">
         <p class="text-black dark:text-white font-lex text-md opacity-0 animate-fade-in">Resume</p>
         <a :href="ABOUT_DATA.resume_url" target="_blank">
           <BsFileEarmarkPersonFill
@@ -80,7 +81,6 @@ setTimeout(() => {
     z-index: 0;
     width: 100%;
     height: 100%;
-    /* z-index: -1; */
     position: absolute;
     background-image: url(../assets/images/border-lg-rounded-right.png);
     background-size: 100% 100%;
@@ -93,15 +93,9 @@ setTimeout(() => {
     opacity: 0;
     left: -30px;
     bottom: -30px;
-    /* z-index: 0; */
     width: 100%;
     height: 100%;
-    /* border-top: white;
-    border-right: white;
-    border-width: 1px; */
     z-index: -1;
-    /* background-color: #00000000; */
-    /* background: linear-gradient(rgba(255, 255, 255, 0.284), rgba(0, 0, 0, 0)) padding-box, linear-gradient(#ffffff00, #00000000) border-box; */
     position: absolute;
     background-image: url(../assets/images/border-lg-rounded-left.png);
     background-size: 100% 100%;
