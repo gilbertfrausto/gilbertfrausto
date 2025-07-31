@@ -26,7 +26,7 @@
           <div>
             <div class="flex flex-row items-center opacity-0 animate-fade-in" :style="{ animationDelay: `${3 * DELAY}ms` }">
               <h3 class="font-lex text-black dark:text-white">{{ forest_road.projects.notables.name }}</h3>
-              <a class="mx-2" target="_blank" :href="forest_road.socials.website">
+              <a class="mx-2" target="_blank" :href="forest_road.socials[1].link">
                   <GvWorld class="text-black-dull dark:text-white-dull text-xl my-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"/>
               </a>
             </div>
@@ -35,7 +35,7 @@
               {{ forest_road.projects.notables.description }} 
             </p>
             <p 
-              class="text-sm text-black/50 darktext-white/50 font-kode pt-2 opacity-0 animate-fade-in" 
+              class="text-sm text-black/50 dark:text-white/50 font-kode pt-2 opacity-0 animate-fade-in" 
               :style="{ animationDelay: `${4 * DELAY}ms` }"
             >
               {{forest_road.projects.notables.stack}}
@@ -123,12 +123,15 @@
       <div class="flex flex-row items-center justify-between p-4">
         <div class="flex flex-row items-center">
           <a 
-            v-for="(social, index) in SOCIALS"
+            v-for="(social, index) in forest_road.socials"
             class="flex flex-row opacity-0 animate-fade-in"
             target="_blank"
             :href="social.link"
             :style="{ animationDelay: `${(index + 9) * DELAY}ms` }">
-            <component :is="social.icon" class="text-black-dull dark:text-white-dull text-xl m-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"/>
+            <component 
+              :is="social.icon"
+              v-if="!social.exclude"
+              class="text-black-dull dark:text-white-dull text-xl m-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"/>
           </a>
         </div>
         
@@ -144,7 +147,7 @@
 </template>
 <script setup>
 import { PROJECTS_DATA } from '@/const';
-import { SiOpensea, SiInstagram, SiDiscord, SiYoutube, FaBandsXTwitter, GvWorld, BxRightArrowAlt, BxLeftArrowAlt} from '@kalimahapps/vue-icons';
+import { SiOpensea, GvWorld, BxRightArrowAlt, BxLeftArrowAlt} from '@kalimahapps/vue-icons';
 
 import { Splide, SplideSlide,  } from '@splidejs/vue-splide';
 import { ref } from 'vue';
@@ -159,32 +162,6 @@ defineProps({
   name: String,
   closeModal: Function,
 });
-
-
-// ADD TO CONST File, LOOK INTO ADD THE THE ICONS HERE
-const SOCIALS = [
-//   {
-//     name: 'IG',
-//     link: forest_road.socials.instagram,
-//     icon: SiInstagram,
-//   },
-//   {
-//     name: 'Discord',
-//     link: forest_road.socials.discord,
-//     icon: SiDiscord,
-//   },
-  {
-    name: 'X',
-    link: forest_road.socials.twitter,
-    icon: FaBandsXTwitter,
-  },
-//   {
-//     name: 'Website',
-//     link: forest_road.socials.website,
-//     icon: GvWorld,
-//   },
-]
-
 
 function onArrowsMounted(splide, index ) {
   const end  = splide.Components.Controller.getEnd() + 1;

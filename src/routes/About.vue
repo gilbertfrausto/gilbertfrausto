@@ -28,7 +28,7 @@
         class="font-kode text-black-dull dark:text-white-dull w-full text-sm py-3 break-all whitespace-normal opacity-0 animate-fade-in"
         :style="{ animationDelay: `${(3) * DELAY}ms` }"
       >
-        {{ ABOUT_DATA.skills.join(',') }}
+        {{ ABOUT_DATA.skills.join(', ') }}
       </p>
       <h3 
         class="text-black dark:text-white font-lex text-md w-full py-3 opacity-0 animate-fade-in"
@@ -40,14 +40,14 @@
         class="font-kode text-black-dull dark:text-white-dull w-full text-sm py-3 opacity-0 animate-fade-in"
         :style="{ animationDelay: `${(5) * DELAY}ms` }"
       >
-        {{ ABOUT_DATA.ai_tools.join(',') }}
+        {{ ABOUT_DATA.ai_tools.join(', ') }}
       </p>
       <div class=" border-t border-black-dull/50 dark:border-white-dull/50 w-full px-2 my-3"></div>
       <div class="flex flex-row items-center justify-center opacity-0 animate-fade-in py-3" :style="{ animationDelay: `${(6) * DELAY}ms` }">
         <p class="text-black dark:text-white font-lex text-md opacity-0 animate-fade-in">Resume</p>
         <a :href="ABOUT_DATA.resume_url" target="_blank">
           <BsFileEarmarkPersonFill
-            class="text-black-dull dark:text-white-dull text-2xl m-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"
+            class="text-black-dull dark:text-white text-2xl m-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"
           />
         </a>
       </div>

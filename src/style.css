@@ -79,6 +79,7 @@
   --font-lex: "lex", "sans-serif";
   --font-promt: "prompt", "sans-serif";
   --font-kode: "kode", "sans-serif";
+  --font-ave: "ave", "sans-serif";
 
    /* cubic-bezier(.44,.32,.13,.75); */
 
@@ -220,6 +221,10 @@ html, body, #app {
   src: url('./assets/fonts/KodeMono-Regular.ttf');
 }
 
+@font-face {
+  font-family: ave;
+  src: url('./assets/fonts/ave.woff2');
+}
 
 /* OVERIDES */
 .my-carousel-progress {

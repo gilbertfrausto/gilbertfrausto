@@ -67,12 +67,15 @@
       <div class="flex flex-row items-center justify-between p-4">
         <div class="flex flex-row items-center">
           <a 
-            v-for="(social, index) in SOCIALS"
+            v-for="(social, index) in google.socials"
             class="flex flex-row opacity-0 animate-fade-in" 
             target="_blank" 
             :href="social.link"
             :style="{ animationDelay: `${(index + 8)* DELAY}ms` }">
-            <component :is="social.icon" class="text-black-dull dark:text-white-dull text-xl m-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"/>
+            <component 
+              :is="social.icon"
+              class="text-black-dull dark:text-white-dull text-xl m-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"
+            />
           </a>
         </div>
         
@@ -88,38 +91,15 @@
 </template>
 <script setup>
 import { PROJECTS_DATA } from '@/const';
-import { SiOpensea, SiInstagram, SiDiscord, SiYoutube, FaBandsXTwitter, GvWorld, BxRightArrowAlt, BxLeftArrowAlt} from '@kalimahapps/vue-icons';
+import { BxLeftArrowAlt} from '@kalimahapps/vue-icons';
 
-import { Splide, SplideSlide,  } from '@splidejs/vue-splide';
-import { ref } from 'vue';
-
-const {pz, google} = PROJECTS_DATA;
-const startEnd  = pz.images.length + 1;
-const startRate = Math.min( 1 / startEnd, 1 );
-const width = ref(`${String( 100 * startRate )}%`);
+const {google} = PROJECTS_DATA;
 const DELAY = 100; // Delay in milliseconds
 
 defineProps({
   name: String,
   closeModal: Function,
 });
-
-
-// ADD TO CONST File, LOOK INTO ADD THE THE ICONS HERE
-const SOCIALS = [
-  {
-    name: 'Website',
-    link: google.socials.website,
-    icon: GvWorld,
-  },
-]
-
-
-function onArrowsMounted(splide, index ) {
-  const end  = splide.Components.Controller.getEnd() + 1;
-  const rate = Math.min( ( index + 1 ) / end, 1 );
-  width.value = `${String( 100 * rate )}%`;
-}
 
 </script>
 

@@ -36,7 +36,7 @@
           <div class="py-4">
             <div class="flex flex-row items-center opacity-0 animate-fade-in" :style="{ animationDelay: `${4 * DELAY}ms` }">
               <h3 class="font-lex text-black dark:text-white">{{ costume.projects.costume_cards.name }}</h3>
-              <a class="mx-2" target="_blank" :href="costume.socials.website">
+              <a class="mx-2" target="_blank" :href="costume.socials[costume.socials.length - 1].link">
                 <GvWorld class="text-black-dull dark:text-white-dull text-xl my-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"/>
               </a>
             </div>
@@ -53,7 +53,7 @@
           <div class="py-4">
             <div class="flex flex-row items-center opacity-0 animate-fade-in" :style="{ animationDelay: `${7 * DELAY}ms` }">
               <h3 class="font-lex text-black dark:text-white">{{ costume.projects.platformer_prototype.name }}</h3>
-              <a class="mx-2" target="_blank" :href="costume.socials.youtube">
+              <a class="mx-2" target="_blank" :href="costume.socials.filter(item => item.name === VIDEO_PLATFORM)[0].link">
                 <SiYoutube class="text-black-dull dark:text-white-dull text-xl my-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"/>
               </a>
             </div>
@@ -110,12 +110,15 @@
       <div class="flex flex-row items-center justify-between p-4">
         <div class="flex flex-row items-center">
           <a 
-            v-for="(social, index) in SOCIALS" 
+            v-for="(social, index) in costume.socials" 
             class="flex flex-row opacity-0 animate-fade-in"
             target="_blank" 
             :href="social.link" 
             :style="{ animationDelay: `${(index + 10) * DELAY}ms` }">
-            <component :is="social.icon" class="text-black-dull dark:text-white-dull text-xl m-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"/>
+            <component 
+              :is="social.icon"
+              v-if="!social.exclude"
+              class="text-black-dull dark:text-white-dull text-xl m-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"/>
           </a>
         </div>
         
@@ -130,8 +133,8 @@
   </div>
 </template>
 <script setup>
-import { PROJECTS_DATA } from '@/const';
-import { SiOpensea, SiInstagram, SiDiscord, SiYoutube, FaBandsXTwitter, GvWorld, BxRightArrowAlt, BxLeftArrowAlt} from '@kalimahapps/vue-icons';
+import { PROJECTS_DATA, VIDEO_PLATFORM } from '@/const';
+import { SiYoutube, GvWorld, BxRightArrowAlt, BxLeftArrowAlt} from '@kalimahapps/vue-icons';
 
 import { Splide, SplideSlide,  } from '@splidejs/vue-splide';
 import { ref } from 'vue';
@@ -140,38 +143,12 @@ const {costume} = PROJECTS_DATA;
 const startEnd  = costume.images.length + 1;
 const startRate = Math.min( 1 / startEnd, 1 );
 const width = ref(`${String( 100 * startRate )}%`);
-
 const DELAY = 100;
 
 defineProps({
   name: String,
   closeModal: Function,
 });
-
-console
-
-const SOCIALS = [
-  {
-    name: 'IG',
-    link: costume.socials.instagram,
-    icon: SiInstagram,
-  },
-  {
-    name: 'Discord',
-    link: costume.socials.discord,
-    icon: SiDiscord,
-  },
-  {
-    name: 'Opensea',
-    link: costume.socials.opensea,
-    icon: SiOpensea,
-  },
-  {
-    name: 'X',
-    link: costume.socials.twitter,
-    icon: FaBandsXTwitter,
-  },
-]
 
 function onArrowsMounted(splide, index ) {
   const end  = splide.Components.Controller.getEnd() + 1;

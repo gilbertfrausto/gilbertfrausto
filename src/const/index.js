@@ -1,7 +1,34 @@
+import { BxArrowBack, SiDiscord, SiInstagram, SiOpensea, MdOutlinedAlternateEmail, GvWorld, AkLinkedInV1Fill, SiYoutube, ThGithub, FaBandsXTwitter } from '@kalimahapps/vue-icons';
+import costumePose from '@/assets/images/projects/costume/pose.png';
+import costumeColour from '@/assets/images/projects/costume/colour.jpg';
+import costumeAction from '@/assets/images/projects/costume/action.jpg';
+import costumeMmo from '@/assets/images/projects/costume/mmo.jpeg';
+
+import bbCardTemplate from '@/assets/images/projects/bb/card_template.jpg';
+import bbEnderCard from '@/assets/images/projects/bb/ender_card.png';
+
+import pzWolfBack from '@/assets/images/projects/pz/wolf_back.png';
+import pzWolf from '@/assets/images/projects/pz/wolf.png';
+import pzWallet from '@/assets/images/projects/pz/wallet.png';
+import pzElLobo from '@/assets/images/projects/pz/el_lobo.png';
+
+import frNotables from '@/assets/images/projects/forest-road/notables.jpeg';
+import frDazn from '@/assets/images/projects/forest-road/dazn.png';
+import frShaq from '@/assets/images/projects/forest-road/shaq.png';
+import frBenBaller from '@/assets/images/projects/forest-road/ben_baller.png';
+
+import costumeTile from '@/assets/images/projects/costume.jpg';
+import pzTile from '@/assets/images/projects/pz.png';
+import googleTile from '@/assets/images/projects/google.jpg';
+import forestRoadTile from '@/assets/images/projects/forest_road.png';
+import moodysTile from '@/assets/images/projects/moody.jpg';
+
+import resumeUrl from '@/assets/pdf/Gilbert_Frausto_2025.pdf';
+
 export const PROJECTS_DATA = {
     costume: {
       name: 'Costume',
-      description: 'Costume is a playful IP with a ton of progress and a couple different prototypes, manga and many other concepts.',
+      description: 'Costume is a playful IP with a ton of progress and a couple different prototypes including Unity and Web3.',
       tags: ['Web3', '2D Platformer', 'Unity', 'NFT', 'MMO', 'POLYGON '],
       projects:{
         costume_cards:  {
@@ -12,8 +39,8 @@ export const PROJECTS_DATA = {
         platformer_prototype: {
           name: 'Costume Prototype',
           stack: 'Unity, C#, Frame by frame animation',
-          description: `Costume Prototype was a 2D platformer game where the player can explore the world and collect power-ups, solve some simiple puzzles and defeat enemies. 
-              and battle some enemies. The game was made in C# with the Unity game engine.`
+          description: `Costume Prototype was a 2D platformer game where the player can explore the world and collect power-ups, solve some simiple puzzles and defeat enemies. The battle system 
+          included use of power-ups and combos. The game was made in C# with the Unity game engine.`
         },
         costume_mmo: {
           name: 'Costume MMO'
@@ -22,29 +49,55 @@ export const PROJECTS_DATA = {
           name: 'Costume Manga'
         },
       },
-      socials: {
-          ig: 'https://www.instagram.com/costumestudios/',
-          opensea: 'https://opensea.io/collection/costumebattlecards',
-          discord: 'https://discord.gg/costumestudios',
-          twitter: 'https://x.com/costumestudios',
-          website: 'https://costumestudios.io',
-          youtube: 'https://youtu.be/FYHheQ8sKLE',
-      },
+      socials: [
+        {
+          name: 'IG',
+          link: 'https://www.instagram.com/costumestudios/',
+          icon: SiInstagram,
+        },
+        {
+          name: 'Discord',
+          link: 'https://discord.gg/costumestudios',
+          icon: SiDiscord,
+        },
+        {
+          name: 'Opensea',
+          link: 'https://opensea.io/collection/costumebattlecards',
+          icon: SiOpensea,
+        },
+        {
+          name: 'X',
+          link: 'https://x.com/costumestudios',
+          icon: FaBandsXTwitter,
+        },
+        {
+          name: 'Youtube',
+          link: 'https://youtu.be/FYHheQ8sKLE?si=mG1EnKHujMG43gw6',
+          icon: SiYoutube,
+          exclude: true
+        },
+        {
+          name: 'Website',
+          link: 'https://costumestudios.io/',
+          icon: SiYoutube,
+          exclude: true
+        },
+      ],
       images: [
         {
-            src: 'src/assets/images/projects/costume/pose.png',
+            src: costumePose,
             alt: 'Costume Power up'
         },
         {
-            src: 'src/assets/images/projects/costume/colour.jpg',
+            src: costumeColour,
             alt: 'Costume Colour'
         },
         {
-            src: 'src/assets/images/projects/costume/action.jpg',
+            src: costumeAction,
             alt: 'Costume Action'
         },
         {
-            src: 'src/assets/images/projects/costume/mmo.jpeg',
+            src: costumeMmo,
             alt: 'MMO'
         },
         {
@@ -67,11 +120,11 @@ export const PROJECTS_DATA = {
       },
       images: [
         {
-          src: 'src/assets/images/projects/bb/card_template.jpg',
+          src: bbCardTemplate,
           alt: 'Battle Blocks Image 1'
         },
         {
-          src: 'src/assets/images/projects/bb/ender_card.png',
+          src: bbEnderCard,
           alt: 'Battle Blocks Image 2'
         }
       ],
@@ -88,19 +141,23 @@ export const PROJECTS_DATA = {
       description: 'Google is a multinational technology company that specializes in Internet-related services and products.',
       tags: ['Glue', 'MDC Web Components','Google marketing'],
       images: [],
-      socials: {
-        website: 'https://about.google/brand-resource-center/',
-      },
+      socials: [
+        {
+          name: 'Website',
+          link: 'https://about.google/brand-resource-center/',
+          icon: GvWorld,
+        },
+      ],
       projects: {
         glue: {
           name: 'Glue',
           stack: 'Web Components, CAF, kokoro, Lit Element, Typescript, Bash, Percy, Google3',
-          description: `Glue was an internal component library exclusively used by Google Marketing. It was used to build marketing sites by by Google and its vendors. We worked closely with the MDC Web components team to intgreate their work into the library.`,
+          description: `Glue was an internal component library exclusively used by Google Marketing. It was used to build marketing sites by Google and its vendors. We worked closely with the MDC Web components team to integrate their work into the library.`,
         },
         presubmit: {
           name: 'Presubmit & Continuous Integration',
           stack: 'Node.js, Mocha, Express, Chai, Sinon, Unit Test',
-          description: 'Before the Glue library was taken to the internal infrastructure(google3), we had to build a presubmit and continuous integration system that would run tests(visual regress & unit testing) on the components before they were submitted to the codebase. Previously this was done with Bash, however there was a number of issues with this solution. I rewrote this using Node.js, Mocha, Express, Chai and Sinon. This allowed for multi-threading(multi-process) and unit-testing.',
+          description: 'Before the Glue library was taken to the internal infrastructure(google3), we had to build a presubmit and continuous integration system that would run tests(visual regression & unit testing) on the components before they were submitted to the codebase. Previously this was done with Bash, however there was a number of issues with this solution. I rewrote this using Node.js, Mocha, Express, Chai and Sinon. This allowed for multi-threading(multi-process) and unit-testing.',
         }
       }
     },
@@ -115,27 +172,44 @@ export const PROJECTS_DATA = {
           stack: 'Vue, Pinia, Web3, Solidity, Polygon, NFT',
         }
       },
-      socials: {
-          ig: 'https://www.instagram.com/prizonersgame/',
-          discord: 'https://discord.gg/GeUCW6QFf9',
-          twitter: 'https://twitter.com/pris0nerz',
-          website: 'https://prisonerz-dev.web.app/'
-      },
+      socials: [
+        {
+          name: 'IG',
+          link: 'https://www.instagram.com/prizonersgame/',
+          icon: SiInstagram,
+        },
+        {
+          name: 'Discord',
+          link: 'https://discord.gg/GeUCW6QFf9',
+          icon: SiDiscord,
+        },
+        {
+          name: 'X',
+          link: 'https://twitter.com/pris0nerz',
+          icon: FaBandsXTwitter,
+        },
+        {
+          name: 'Website',
+          link: 'https://prisonerz-dev.web.app/',
+          icon: GvWorld,
+          exclude: true
+        },
+      ],
       images: [
         {
-          src: 'src/assets/images/projects/pz/wolf_back.png',
+          src: pzWolfBack,
           alt: 'Pris0nerz Image 1'
         },
         {
-          src: 'src/assets/images/projects/pz/wolf.png',
+          src: pzWolf,
           alt: 'Pris0nerz Image 2'
         },
         {
-          src: 'src/assets/images/projects/pz/wallet.png',
+          src: pzWallet,
           alt: 'Pris0nerz Image 3'
         },
         {
-          src: 'src/assets/images/projects/pz/el_lobo.png',
+          src: pzElLobo,
           alt: 'Pris0nerz Image 4'
         },
         {
@@ -154,15 +228,25 @@ export const PROJECTS_DATA = {
           name: 'RiskCalc',
           description: `RiskCalc is a Moody\'s product that provides credit risk assessment for private companies. It uses a variety of data sources to provide a comprehensive view of a company\'s credit risk.
           This product was going into its third iteration, and I was brought in to help with the design and development of the new version. The legacy app was built in flash using flex, so legacy API's were still using XML. Some complex data visualizations 
-          were for timeseries and heat map calculations.`,
+          users would use the application for included, timeseries and heat map calculations.`,
           stack: 'Angular, Angular Material, Typescript, C#, C++, D3, Highcharts',
         }
       },
       images: [],
-      socials: {
-        website: 'https://www.moodys.com',
-        riskcalc: 'https://riskcalcplus.moodysanalytics.com'
-      }
+      socials: [
+        {
+          name: 'Website',
+          link: 'https://www.moodys.com',
+          icon: GvWorld,
+          exclude: false
+        },
+        {
+          name: 'RiskCalc',
+          link: 'https://riskcalcplus.moodysanalytics.com',
+          icon: GvWorld,
+          exclude: true
+        },
+      ]
     },
     forest_road: {
       name: 'The Forest Road Company',
@@ -170,19 +254,19 @@ export const PROJECTS_DATA = {
       description: 'Notables was a forest road company that speacialized in building NFT marketplaces and drops for various clients and IPs. Some including DAZN, Shaq, Ben Baller. Notables was later aquired by Candle Media.',
       images: [
         {
-          src: 'src/assets/images/projects/forest-road/notables.jpeg',
+          src: frNotables,
           alt: 'DAZN NFT Marketplace'
         },
         {
-          src: 'src/assets/images/projects/forest-road/dazn.png',
+          src: frDazn,
           alt: 'DAZN NFT Marketplace'
         },
         {
-          src: 'src/assets/images/projects/forest-road/shaq.png',
+          src: frShaq,
           alt: 'Shaq NFT Marketplace'
         },
         {
-          src: 'src/assets/images/projects/forest-road/ben_baller.png',
+          src: frBenBaller,
           alt: 'Ben Baller NFT Marketplace'
         }
       ],
@@ -209,12 +293,20 @@ export const PROJECTS_DATA = {
           }
         }
       },
-      socials: {
-        website: 'https://www.forestroad.co',
-        twitter: 'https://x.com/NotablesCo',
-        // discord: 'https://discord.gg/forestroadco'
-      }
-
+      socials: [
+        {
+          name: 'X',
+          link: 'https://x.com/NotablesCo',
+          icon: FaBandsXTwitter,
+          exclude: false
+        },
+        {
+          name: 'Website',
+          link: 'https://www.forestroad.co',
+          icon: FaBandsXTwitter,
+          exclude: true
+        },
+      ],
     }
 }
 
@@ -229,16 +321,17 @@ export const PROJECTS = {
   BLANK: 'Blank'
 };
 
+// TODO ADD TO PROJECT DATA
 export const ALL_PROJECT_TILES = {
   projects: [
     {
       name: PROJECTS.COSTUME,
-      img: 'src/assets/images/projects/costume.jpg',
+      img: costumeTile,
       project_index: 1
     },
     {
       name: PROJECTS.PZ,
-      img: 'src/assets/images/projects/pz.png',
+      img: pzTile,
       project_index: 2
     },
     {
@@ -251,12 +344,12 @@ export const ALL_PROJECT_TILES = {
     },
     {
       name: PROJECTS.GOOGLE,
-      img: 'src/assets/images/projects/google.jpg',
+      img: googleTile,
       project_index: 3
     },
     {
       name: PROJECTS.FOREST_ROAD,
-      img: 'src/assets/images/projects/forest_road.png',
+      img: forestRoadTile,
       project_index: 4
     },
   ],
@@ -269,7 +362,7 @@ export const ALL_PROJECT_TILES = {
     },
     {
       name: PROJECTS.MOODYS,
-      img: 'src/assets/images/projects/moody.jpg',
+      img: moodysTile,
       project_index: 3
     },
 
@@ -277,15 +370,15 @@ export const ALL_PROJECT_TILES = {
     // TODO PROJECT NEEDS MORE ASSETSs
     // {
     //   name: PROJECTS.BB,
-    //   img: 'src/assets/images/projects/bb.png',
+    //   img: '@/assets/images/projects/bb.png',
     //   project_index: 4
     // },
   ]
-}
+};
 
 export const ABOUT_DATA = {
   description: `I am a software engineer with a passion for building web applications and games. I have experience in a variety of technologies and languages.`,
-  ai: `AI tools and integrations`,
+  ai: `AI tools and LLM Iintegrations`,
   langs_and_framewoks: 'Languages and frameworks',
   ai_tools: [
     'Ollama',
@@ -313,8 +406,8 @@ export const ABOUT_DATA = {
     'Google Cloud',
     'Unity', 
   ],
-  resume_url: 'src/assets/pdf/Gilbert_Frausto_2025.pdf'
-}
+  resume_url: resumeUrl
+};
 
 export const CONTACT_DATA = {
   contact: 'Contact',
@@ -324,4 +417,30 @@ export const CONTACT_DATA = {
   github: 'https://github.com/gilbertfrausto',
   linkedin: 'https://www.linkedin.com/in/gilbert-frausto/',
   twitter: 'https://x.com/gilbertfrausto3',
-}
+  website: 'https://gilbert-frausto.web.app/'
+};
+
+export const CONTACT = [
+  {
+    name: 'Email',
+    link: CONTACT_DATA.email,
+    icon: MdOutlinedAlternateEmail
+  },
+  {
+    name: 'LinkedIn',
+    link: CONTACT_DATA.linkedin,
+    icon: AkLinkedInV1Fill
+  },
+  {
+    name: 'GitHub',
+    link: CONTACT_DATA.github,
+    icon: ThGithub
+  },
+  {
+    name: 'Twitter',
+    link: CONTACT_DATA.twitter,
+    icon: FaBandsXTwitter
+  }
+];
+
+export const VIDEO_PLATFORM = 'Youtube';

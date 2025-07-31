@@ -20,7 +20,11 @@
         >
           {{CONTACT_DATA.description}}
         </h3>
-        <div class=" border-t border-black-dull/50 dark:border-white-dull/50 w-full px-2 my-3"></div>
+        <div class="w-full flex flex-col items-center justify-center relative">
+          <!-- <img class="w-20 drop-shadow-2xl animate-pulse-glow transition-[filter] absolute" src="../assets/images/pose.png"/> -->
+          <div class=" border-t border-black-dull/50 dark:border-white-dull/50 w-full px-2 my-3"></div>
+        </div>
+        
         <div class="w-full flex flex-row items-start justify-center relative">
           <a 
             v-for="(link, index) in CONTACT"
@@ -29,7 +33,7 @@
             :href="link.link"
             class="opacity-0 animate-fade-in" 
             :style="{ animationDelay: `${(index + 2) * DELAY}ms` }">
-            <component :is="link.icon" class="text-black-dull dark:text-white-dull text-2xl m-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"/>
+            <component :is="link.icon" class="text-black-dull dark:text-white text-2xl m-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"/>
           </a>
         </div>
       </div>
@@ -39,8 +43,8 @@
   
 </template>
 <script setup>
-import { BxArrowBack, MdOutlinedAlternateEmail, AkLinkedInV1Fill, ThGithub, FaBandsXTwitter } from '@kalimahapps/vue-icons';
-import { ABOUT_DATA, CONTACT_DATA } from '@/const';
+import { BxArrowBack } from '@kalimahapps/vue-icons';
+import { CONTACT, CONTACT_DATA } from '@/const';
 import { ref } from 'vue';
 
 const setActive = ref(false);
@@ -49,30 +53,6 @@ const DELAY = 100;
 setTimeout(() => {
   setActive.value = true;
 }, 500);
-
-const CONTACT = [
-  {
-    name: 'Email',
-    link: CONTACT_DATA.email,
-    icon: MdOutlinedAlternateEmail
-  },
-  {
-    name: 'LinkedIn',
-    link: CONTACT_DATA.linkedin,
-    icon: AkLinkedInV1Fill
-  },
-  {
-    name: 'GitHub',
-    link: CONTACT_DATA.github,
-    icon: ThGithub
-  },
-  {
-    name: 'Twitter',
-    link: CONTACT_DATA.twitter,
-    icon: FaBandsXTwitter
-  }
-]
-
 
 </script>
 

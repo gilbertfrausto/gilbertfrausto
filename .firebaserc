@@ -1,0 +1,18 @@
+{
+  "projects": {
+    "default": "gilbert-frausto"
+  },
+  "targets": {
+    "gilbert-frausto": {
+      "hosting": {
+        "dev": [
+          "gilbert-frausto-dev"
+        ],
+        "main": [
+          "gilbert-frausto"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

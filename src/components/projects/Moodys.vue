@@ -26,7 +26,7 @@
           <div class="pb-4">
             <div class="flex flex-row items-center opacity-0 animate-fade-in" :style="{ animationDelay: `${3 * DELAY}ms` }">
               <h3 class="font-lex text-black dark:text-white">{{ moodys.projects.riskcalc.name }}</h3>
-              <a class="mx-2" target="_blank" :href="google.socials.riskcalc">
+              <a class="mx-2" target="_blank" :href="moodys.socials[1].link">
                 <GvWorld class="text-black-dull dark:text-white-dull text-xl my-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"/>
               </a>
             </div>
@@ -48,13 +48,17 @@
       <div class="flex flex-row items-center justify-between p-4">
         <div class="flex flex-row items-center">
           <a 
-            v-for="(social, index) in SOCIALS" 
+            v-for="(social, index) in moodys.socials" 
             class="flex flex-row opacity-0 animate-fade-in"
             target="_blank" 
             :href="social.link" 
             :style="{ animationDelay: `${(index + 5)* DELAY}ms` }"
           >
-            <component :is="social.icon" class="text-black-dull dark:text-white-dull text-xl m-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"/>
+            <component 
+              :is="social.icon" 
+              v-if="!social?.exclude" 
+              class="text-black-dull dark:text-white-dull text-xl m-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"
+            />
           </a>
         </div>
         
@@ -70,39 +74,20 @@
 </template>
 <script setup>
 import { PROJECTS_DATA } from '@/const';
-import { SiOpensea, SiInstagram, SiDiscord, SiYoutube, FaBandsXTwitter, GvWorld, BxRightArrowAlt, BxLeftArrowAlt} from '@kalimahapps/vue-icons';
+import { GvWorld, BxLeftArrowAlt} from '@kalimahapps/vue-icons';
 
-import { Splide, SplideSlide,  } from '@splidejs/vue-splide';
 import { ref } from 'vue';
 
-const {moodys, google} = PROJECTS_DATA;
-const startEnd  = google.images.length + 1;
+
+const {moodys} = PROJECTS_DATA;
+const startEnd  = moodys.images.length + 1;
 const startRate = Math.min( 1 / startEnd, 1 );
-const width = ref(`${String( 100 * startRate )}%`);
 const DELAY = 100; // Delay in milliseconds
 
 defineProps({
   name: String,
   closeModal: Function,
 });
-
-
-// ADD TO CONST File, LOOK INTO ADD THE THE ICONS HERE
-const SOCIALS = [
-  {
-    name: 'Website',
-    link: google.socials.website,
-    icon: GvWorld,
-  },
-]
-
-
-function onArrowsMounted(splide, index ) {
-  const end  = splide.Components.Controller.getEnd() + 1;
-  const rate = Math.min( ( index + 1 ) / end, 1 );
-  width.value = `${String( 100 * rate )}%`;
-}
-
 </script>
 
 <style scoped>

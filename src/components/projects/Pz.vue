@@ -27,7 +27,7 @@
           <div class="">
             <div class="flex flex-row items-center opacity-0 animate-fade-in" :style="{ animationDelay: `${4 * DELAY}ms` }">
               <h3 class="font-lex text-black dark:text-white">{{ pz.projects.nft_game.name }}</h3>
-              <a class="mx-2" target="_blank" :href="pz.socials.website">
+              <a class="mx-2" target="_blank" :href="pz.socials[pz.socials.length -1].link">
                 <GvWorld class="text-black-dull dark:text-white text-xl my-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"/>
               </a>
             </div>
@@ -84,7 +84,7 @@
       <div class="flex flex-row items-center justify-between p-4">
         <div class="flex flex-row items-center">
           <a 
-            v-for="(social, index) in SOCIALS" class="flex flex-row opacity-0 animate-fade-in" 
+            v-for="(social, index) in pz.socials" class="flex flex-row opacity-0 animate-fade-in" 
             target="_blank" :href="social.link" :style="{ animationDelay: `${(index + 7) * DELAY}ms` }">
             <component :is="social.icon" class="text-black-dull dark:text-white-dull text-xl m-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"/>
           </a>
@@ -102,7 +102,7 @@
 </template>
 <script setup>
 import { PROJECTS_DATA } from '@/const';
-import { SiOpensea, SiInstagram, SiDiscord, SiYoutube, FaBandsXTwitter, GvWorld, BxRightArrowAlt, BxLeftArrowAlt} from '@kalimahapps/vue-icons';
+import { GvWorld, BxRightArrowAlt, BxLeftArrowAlt} from '@kalimahapps/vue-icons';
 
 import { Splide, SplideSlide,  } from '@splidejs/vue-splide';
 import { ref } from 'vue';
@@ -117,32 +117,6 @@ defineProps({
   name: String,
   closeModal: Function,
 });
-
-
-// ADD TO CONST File, LOOK INTO ADD THE THE ICONS HERE
-const SOCIALS = [
-  {
-    name: 'IG',
-    link: pz.socials.instagram,
-    icon: SiInstagram,
-  },
-  {
-    name: 'Discord',
-    link: pz.socials.discord,
-    icon: SiDiscord,
-  },
-  {
-    name: 'X',
-    link: pz.socials.twitter,
-    icon: FaBandsXTwitter,
-  },
-  // TODO might need to aadd this back, but still like this to be in the project data
-  // {
-  //   name: 'Website',
-  //   link: pz.socials.website,
-  //   icon: GvWorld,
-  // },
-]
 
 
 function onArrowsMounted(splide, index ) {
