@@ -18,9 +18,10 @@
     </div>
     <div :style="{ animationDelay: `${(1) * DELAY}ms` }" class="opacity-o animate-fade-in">
       <a 
-        :href="CONTACT_DATA.website"
+        :href="CONTACT_DATA.gravatar"
+        target="_blank"
         class="text-black dark:text-white font-ave text-xs hover:opacity-60 transition">
-        gilbert-frausto.web.app
+        {{ CONTACT_DATA.footer }}
       </a>
     </div>
     

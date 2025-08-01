@@ -414,6 +414,8 @@ export const CONTACT_DATA = {
   linkedin: 'https://www.linkedin.com/in/gilbert-frausto/',
   twitter: 'https://x.com/gilbertfrausto3',
   website: 'https://gilbert-frausto.web.app/',
+  gravatar: 'https://gilbertfrausto.life/',
+  footer: 'gilbertfrausto.life'
 };
 
 export const CONTACT = [

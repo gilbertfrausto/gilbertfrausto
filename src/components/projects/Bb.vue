@@ -51,7 +51,7 @@
                 <BxRightArrowAlt/>
               </button>
               <button class="splide__arrow splide__arrow--next">
-                <BxRightArrowAlt />
+              <BxRightArrowAlt />
               </button>
             </div>
 
