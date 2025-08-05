@@ -10,16 +10,22 @@
       <RouterView />
     </main>
 
-    <Footer />  
+    <Footer v-if="isHome" />
   </div>
 </template>
 
 <script setup>
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
 import Hero from '@/components/Hero.vue';
 import Footer from '@/components/Footer.vue';
 import Gemini from '@/components/Gemini.vue';
 import Particles from './components/Particles.vue';
-import GradientText from './components/GradientText.vue';
+
+const route = useRoute();
+
+// TODO add to const file
+const isHome = computed(() => route.path === '/');
 </script>
 
 <style scoped>

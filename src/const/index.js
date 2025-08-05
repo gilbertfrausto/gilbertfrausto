@@ -415,7 +415,7 @@ export const CONTACT_DATA = {
   twitter: 'https://x.com/gilbertfrausto3',
   website: 'https://gilbert-frausto.web.app/',
   gravatar: 'https://gilbertfrausto.life/',
-  footer: 'gilbertfrausto.life'
+  footer: 'gilbert-frausto.web.app'
 };
 
 export const CONTACT = [

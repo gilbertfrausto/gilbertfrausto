@@ -1,6 +1,5 @@
 <template>
   <div class="w-full absolute bottom-0 flex flex-col items-center justify-center p-5">
-    <!-- <img class="w-20 drop-shadow-2xl animate-pulse-glow transition-[filter]" src="../assets/images/pose.png"/> -->
     <div class="w-full flex flex-row items-start justify-center relative">
       <a 
         v-for="(link, index) in CONTACT"
@@ -16,9 +15,9 @@
         />
       </a>
     </div>
-    <div :style="{ animationDelay: `${(1) * DELAY}ms` }" class="opacity-o animate-fade-in">
+    <div :style="{ animationDelay: `${(1) * DELAY}ms` }" class="opacity-0 animate-fade-in">
       <a 
-        :href="CONTACT_DATA.gravatar"
+        :href="CONTACT_DATA.website"
         target="_blank"
         class="text-black dark:text-white font-ave text-xs hover:opacity-60 transition">
         {{ CONTACT_DATA.footer }}

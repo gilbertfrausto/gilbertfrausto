@@ -1,14 +1,14 @@
 <template>
   <div class="w-full h-full flex flex-col items-center justify-center">
     <router-link to="/" class="p-2 z-10">
-      <BxArrowBack class="text-black-dull dark:text-white-dull text-4xl m-4 opacity-100 delay-100 hover:opacity-5 transition animate-fade-in cursor-pointer "/>
+      <BxArrowBack class="text-black-dull dark:text-white-dull text-shadow-2xl  text-4xl m-4 opacity-100 delay-100 hover:opacity-5 transition animate-fade-in cursor-pointer "/>
     </router-link>  
 
     <div 
       class="about" 
       :class="[
         'opacity-0 md:w-[50%] w-3/4 flex flex-col flex-wrap bg-white/70 dark:bg-black/70 rounded-xl',
-        'shadow-2xl p-5 relative animate-fade-in',
+        'shadow-md p-5 relative animate-fade-in',
         setActive && 'active'
       ]"
       :style="{ animationDelay: `${1 * DELAY}ms` }"
@@ -65,12 +65,12 @@ setTimeout(() => {
     z-index: 0;
     width: 100%;
     height: 100%;
-    /* z-index: -1; */
     position: absolute;
     background-image: url(../assets/images/border-lg-rounded-right.png);
     background-size: 100% 100%;
     transform: translate(0ch, -11mm);
     animation-delay: 1s;
+    pointer-events: none;
   }
 
   &:after {
@@ -78,20 +78,15 @@ setTimeout(() => {
     opacity: 0;
     left: -30px;
     bottom: -30px;
-    /* z-index: 0; */
     width: 100%;
     height: 100%;
-    /* border-top: white;
-    border-right: white;
-    border-width: 1px; */
     z-index: -1;
-    /* background-color: #00000000; */
-    /* background: linear-gradient(rgba(255, 255, 255, 0.284), rgba(0, 0, 0, 0)) padding-box, linear-gradient(#ffffff00, #00000000) border-box; */
     position: absolute;
     background-image: url(../assets/images/border-lg-rounded-left.png);
     background-size: 100% 100%;
     transform: translate(-3ch, -3mm);
     animation-delay: 1s;
+    pointer-events: none;
   }
 
   &.active {

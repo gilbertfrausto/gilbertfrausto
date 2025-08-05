@@ -1,7 +1,7 @@
 <template>
   <div class="w-full h-full flex flex-col items-center justify-center ">
     <router-link to="/" class="p-2 z-10">
-      <BxArrowBack class="text-black-dull dark:text-white-dull text-4xl m-3 opacity-0 delay-300 hover:opacity-5 transition animate-fade-in cursor-pointer "/>
+      <BxArrowBack class="text-black-dull dark:text-white-dull text-shadow-2xl  text-4xl m-3 opacity-0 delay-300 hover:opacity-5 transition animate-fade-in cursor-pointer "/>
     </router-link>
 
     <!-- PROJECT TILES -->
