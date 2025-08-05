@@ -442,3 +442,27 @@ export const CONTACT = [
 ];
 
 export const VIDEO_PLATFORM = 'Youtube';
+
+export const HOME_DATA = [
+  {
+    text: 'Welcome, ',
+    colored: false
+  },
+  {
+    text: `I'm Gilbert Frausto a `,
+    colored: false
+  },
+  {
+    text: 'Front-End ',
+    colored: true
+  },
+  {
+    text: 'Developer and ',
+    colored: false
+  },
+  {
+    text: ' UI Architect',
+    colored: true
+  },
+
+]

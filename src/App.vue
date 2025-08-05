@@ -19,6 +19,7 @@ import Hero from '@/components/Hero.vue';
 import Footer from '@/components/Footer.vue';
 import Gemini from '@/components/Gemini.vue';
 import Particles from './components/Particles.vue';
+import GradientText from './components/GradientText.vue';
 </script>
 
 <style scoped>

@@ -30,6 +30,15 @@
     }
   }
 
+  .welcome-text {
+    /* background: linear-gradient(90deg, #C400FF 46.15%, #05FBFF 75%, #00FF7B 98.08%); */
+    background: linear-gradient(90deg, #C400FF 10%, #04FBFD 98%);
+    
+
+    @variant dark {
+      background: linear-gradient(90deg, #05FBFF 75%, #00FF7B 98.08%);
+    }
+  }
   .nav-borders {
     &:after {
       background-image: url(./assets/images/border-light-left.png);
@@ -74,12 +83,12 @@
   --transition-stagger: all .3s cubic-bezier(0.47, 0, 0.745, 0.715);
 
 
-
   /* FONTS */
   --font-lex: "lex", "sans-serif";
   --font-promt: "prompt", "sans-serif";
   --font-kode: "kode", "sans-serif";
   --font-ave: "ave", "sans-serif";
+  --font-red-hat: 'red-hat', "sans-serif";
 
    /* cubic-bezier(.44,.32,.13,.75); */
 
@@ -224,6 +233,14 @@ html, body, #app {
 @font-face {
   font-family: ave;
   src: url('./assets/fonts/ave.woff2');
+}
+@font-face {
+  font-family: ave;
+  src: url('./assets/fonts/ave.woff2');
+}
+@font-face {
+  font-family: red-hat;
+  src: url('./assets/fonts/RedHatDisplay-VariableFont_wght.ttf');
 }
 
 /* OVERIDES */

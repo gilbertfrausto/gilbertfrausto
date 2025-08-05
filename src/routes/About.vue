@@ -1,6 +1,6 @@
 <template>
   <div class="w-full h-full flex flex-col items-center justify-center">
-    <router-link to="/">
+    <router-link to="/" class="p-2 z-10">
       <BxArrowBack class="text-black-dull dark:text-white-dull text-4xl m-4 opacity-100 delay-100 hover:opacity-5 transition animate-fade-in cursor-pointer "/>
     </router-link>  
 
@@ -8,7 +8,7 @@
       class="about"
       :class="[
         'opacity-0 w-[70%] flex flex-col flex-wrap bg-white-dull/70 dark:bg-black/70 rounded-xl animate-fade-in',
-        ' shadow-2xl p-5 relative',
+        'shadow-2xl p-5 relative z-10',
         '',
         setActive && 'active'
       ]"
@@ -60,15 +60,6 @@
 <script setup>
 import { BxArrowBack, BsFileEarmarkPersonFill } from '@kalimahapps/vue-icons';
 import { ABOUT_DATA } from '@/const';
-import { ref } from 'vue';
-
-const setActive = ref(false);
-const DELAY = 100;
-
-setTimeout(() => {
-  setActive.value = true;
-}, 500);
-
 </script>
 
 <style>
