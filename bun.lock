@@ -12,6 +12,7 @@
         "@splidejs/vue-splide": "^0.6.12",
         "@tailwindcss/vite": "^4.1.11",
         "firebase-tools": "^14.11.1",
+        "inbetween-time": "^2.1.0",
         "pinia": "^3.0.3",
         "tailwindcss": "^4.1.11",
         "vue": "^3.5.17",
@@ -763,6 +764,8 @@
     "import-lazy": ["import-lazy@2.1.0", "", {}, "sha512-m7ZEHgtw69qOGw+jwxXkHlrlIPdTGkyh66zXZ1ajZbxkDBNjSY/LGbmjc7h0s2ELsUDTAhFr55TrPSSqJGPG0A=="],
 
     "imurmurhash": ["imurmurhash@0.1.4", "", {}, "sha512-JmXMZ6wuvDmLiHEml9ykzqO6lwFbof0GG4IkcGaENdCRDDmMVnny7s5HsIgHCbaq0w2MyPhDqkhTUgS2LU2PHA=="],
+
+    "inbetween-time": ["inbetween-time@2.1.0", "", {}, "sha512-L5QS0h3kNwYzfsz6qGzFEkZrRlizly6qzVRdEQJc5y1+aszC3upvJ+7zuVe2dpf/jvtWTkq16TvUXo15kSboWw=="],
 
     "inherits": ["inherits@2.0.3", "", {}, "sha512-x00IRNXNy63jwGkJmzPigoySHbaqpNuzKbBOmzK+g2OdZpQ9w+sxCN+VSB3ja7IAge2OP2qpfxTjeNcyjmW1uw=="],
 
