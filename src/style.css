@@ -32,7 +32,7 @@
 
   .welcome-text {
     /* background: linear-gradient(90deg, #C400FF 46.15%, #05FBFF 75%, #00FF7B 98.08%); */
-    background: linear-gradient(90deg, #C400FF 10%, #04FBFD 98%);
+    background: linear-gradient(90deg, #C400FF 10%, #ff5050 98%);
     
 
     @variant dark {
@@ -78,6 +78,7 @@
   --animate-background-move: background-move 10s linear infinite alternate;
   --animate-border-pulse: border-pulse 2s linear infinite alternate;
   --animate-border-pulse-dark: border-pulse-dark 2s linear infinite alternate;
+  --animate-shake: 0.8s shake 2 alternate;
 
   /* * update or remove this stagger line */
   --transition-stagger: all .3s cubic-bezier(0.47, 0, 0.745, 0.715);
@@ -166,6 +167,27 @@
     }
     100 % {
       border-color: rgba(0, 0, 0, 1);
+    }
+  }
+
+  @keyframes shake {
+    0% {
+      transform: skewX(-15deg);
+    }
+    5% {
+      transform: skewX(15deg);
+    }
+    10% {
+      transform: skewX(-15deg);
+    }
+    15% {
+      transform: skewX(15deg);
+    }
+    20% {
+      transform: skewX(0deg);
+    }
+    100% {
+      transform: skewX(0deg);
     }
   }
 }

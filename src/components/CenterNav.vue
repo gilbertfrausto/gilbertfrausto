@@ -4,11 +4,13 @@
       <ul class="flex flex-col">
         <li 
           v-for="(link, index) in listItems"
-          :key="link"
+          :key="link.path"
           :style="{ animationDelay: `${index * delay}ms` }"
-          :class="[...BUTTON_STYLES]">
+          :class="[...BUTTON_STYLES]"
+          @mouseover="handleMouseOver(index)"
+          @mouseout="handleMouseOut(index)">
           <router-link :to="link.path"  v-if="link.name !== 'Home'">
-            {{link.name}}
+            {{link.displayText}}
         </router-link>
       </li>
       </ul>
@@ -17,19 +19,54 @@
 </template>
 
 <script setup>;
-import { ref, onMounted } from 'vue'
+import { ref, onMounted } from 'vue';
+import inBetweenTime from 'inbetween-time';
 import { routes } from '@/router';
 import { BUTTON_STYLES } from '@/classes/button';
+import { ALL_LETTERS } from '@/const';
+
 const delay = 150; // ms
 const show = ref(false);
 
-const listItems = routes
+const listItems = ref(routes
   .filter(item => item.name !== 'Home')
-  .reduce((all, item) => {
-    let {name, path} = item;
-    all.push({name, path});
-    return all;
-  },[]);
+  .map(item => ({
+    name: item.name,
+    path: item.path,
+    displayText: item.name
+  })));
+
+const intervals = {};
+const handleMouseOver = (index) => {
+  const {name} = listItems.value[index];
+  intervals[index] = inBetweenTime({
+    timer: 30,
+    count: name.length,
+    method: () => {
+      listItems.value[index].displayText = name
+        .split("")
+        .map((letter, idx) => {
+          if(idx < intervals[index].getIterations()) {
+            return name[idx];
+          }
+          return ALL_LETTERS[Math.floor(Math.random() * 26)]
+        })
+        .join("");
+    },
+    onComplete: () => {
+      listItems.value[index].displayText = name;
+    }
+  });
+  intervals[index].iterator();
+}
+
+const handleMouseOut = (index) => {
+  intervals[index].pause();
+  if (listItems.value[index]) {
+    listItems.value[index].displayText = listItems.value[index].name;
+  }
+};
+
 
 onMounted(() => {
   // Trigger show after mount

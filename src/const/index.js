@@ -442,7 +442,7 @@ export const CONTACT = [
 ];
 
 export const VIDEO_PLATFORM = 'Youtube';
-
+export const ALL_LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 export const HOME_DATA = [
   {
     text: 'Welcome, ',
