@@ -56,6 +56,15 @@
     }
   }
 
+  .npm-hero {
+    background-image: url(@/assets/images/projects/ibt/IBT_BACKDROP_DARK.png);
+    background-size: contain;
+    @variant dark {
+      background-image: url(@/assets/images/projects/ibt/IBT_BACKDROP_LIGHT.png);
+      background-size: contain;
+    }
+  }
+
 }
 
 

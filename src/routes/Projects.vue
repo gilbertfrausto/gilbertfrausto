@@ -71,6 +71,7 @@
               <Moodys v-else-if="project === PROJECTS.MOODYS" :name="project"  :closeModal="closeModal"/>
               <ForestRoad v-else-if="project === PROJECTS.FOREST_ROAD" :name="project"  :closeModal="closeModal"/>
               <Pz v-else-if="project === PROJECTS.PZ" :name="project" :closeModal="closeModal"/>
+              <Ibt v-else-if="project === PROJECTS.IBT" :name="project" :closeModal="closeModal"/>
 
               <div v-else>no project</div>
             </DialogPanel>
@@ -92,10 +93,16 @@ import {
   Dialog,
   DialogPanel,
 } from '@headlessui/vue';
+
+// PROJECTS
 import Costume from '@/components/projects/Costume.vue';
 import Google from '@/components/projects/Google.vue';
 import Bb from '@/components/projects/Bb.vue';
 import Pz from '@/components/projects/Pz.vue';
+import Moodys from '@/components/projects/Moodys.vue';
+import ForestRoad from '@/components/projects/ForestRoad.vue';
+import Ibt from '@/components/projects/Ibt.vue';
+
 import Backdrop from '@/components/Backdrop.vue';
 import useAppStore from '@/store/app-store';
 
@@ -106,8 +113,7 @@ import '@splidejs/vue-splide/css';
 
 // or only core styles
 import '@splidejs/vue-splide/css/core';
-import Moodys from '@/components/projects/Moodys.vue';
-import ForestRoad from '@/components/projects/ForestRoad.vue';
+
 
 const DELAY = 150;
 

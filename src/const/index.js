@@ -1,4 +1,4 @@
-import { SiDiscord, SiInstagram, SiOpensea, MdOutlinedAlternateEmail, GvWorld, AkLinkedInV1Fill, SiYoutube, ThGithub, FaBandsXTwitter } from '@kalimahapps/vue-icons';
+import { SiDiscord, SiInstagram, SiOpensea, MdOutlinedAlternateEmail, GvWorld, AkLinkedInV1Fill, SiYoutube, ThGithub, FaBandsXTwitter, FaBandsNpm } from '@kalimahapps/vue-icons';
 import costumePose from '@/assets/images/projects/costume/pose.png';
 import costumeColour from '@/assets/images/projects/costume/colour.jpg';
 import costumeAction from '@/assets/images/projects/costume/action.jpg';
@@ -22,6 +22,7 @@ import pzTile from '@/assets/images/projects/pz.png';
 import googleTile from '@/assets/images/projects/google.jpg';
 import forestRoadTile from '@/assets/images/projects/forest_road.png';
 import moodysTile from '@/assets/images/projects/moody.jpg';
+import ibtTile from '@/assets/images/projects/IBTTILE.png';
 
 //! Might not need this and just use static storage like drive
 // import resumeUrl from '@/assets/pdf/Gilbert_Frausto_2025.pdf';
@@ -33,6 +34,7 @@ export const PROJECTS = {
   BB: 'BattleBlocks',
   FOREST_ROAD: 'The Forest Road Company',
   MOODYS: `Moody's`,
+  IBT: 'Inbetween Time',
   BLANK: 'Blank'
 };
 
@@ -314,6 +316,33 @@ export const PROJECTS_DATA = {
           exclude: true
         },
       ],
+    },
+    inbetweenTime: {
+      name: PROJECTS.IBT,
+      tags: ['animations', 'npm', 'coroutine', 'DOP', 'Classless OOP'],
+      description: ``,
+      projects: {
+        npm: {
+          name: 'NPM',
+          description: `Inbetween time is a iteration library to help developers who need coroutine functionality. In the case of programmatically needing to stop an 
+            animation loop, say... somehting running at 60fps. But there is always a time where you need this function to resume where it left off, that's where inbetween-time comes into play.
+            To take things a level deeper, I decided to switch from classes OOP or JS Module pattern, to a modern Data-Oriented programming (DOP) pattern. This focuses of pure functions and immutability.`,
+          stack: 'Vanillia JS, Firebase, BUN',
+        }
+      },
+      socials: [
+        {
+          name: 'npm',
+          link: 'https://www.npmjs.com/package/inbetween-time',
+          icon: FaBandsNpm,
+          exclude: true
+        },
+        {
+          name: 'Github',
+          link: 'https://github.com/gilbertfrausto/inbetween-time',
+          icon: ThGithub
+        }
+      ]
     }
 }
 
@@ -361,6 +390,11 @@ export const ALL_PROJECT_TILES = {
       img: moodysTile,
       project_index: 3
     },
+    {
+      name: PROJECTS.IBT,
+      img: ibtTile,
+      project_index: 4
+    }
 
   
     // TODO PROJECT NEEDS MORE ASSETSs
@@ -415,7 +449,8 @@ export const CONTACT_DATA = {
   twitter: 'https://x.com/gilbertfrausto3',
   website: 'https://gilbert-frausto.web.app/',
   gravatar: 'https://gilbertfrausto.life/',
-  footer: 'gilbert-frausto.web.app'
+  footer: 'gilbert-frausto.web.app',
+  npm: 'https://www.npmjs.com/package/inbetween-time'
 };
 
 export const CONTACT = [
@@ -438,6 +473,11 @@ export const CONTACT = [
     name: 'Twitter',
     link: CONTACT_DATA.twitter,
     icon: FaBandsXTwitter
+  },
+  {
+    name: 'Npm',
+    link: CONTACT_DATA.npm,
+    icon: FaBandsNpm
   }
 ];
 
