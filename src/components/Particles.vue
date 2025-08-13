@@ -1,5 +1,5 @@
 <template>
-  <div class="container-part w-full h-full absolute top-0 left-0 pointer-events-none overflow-hidden z-1 opacity-70">
+  <div class="w-full h-full absolute top-0 left-0 pointer-events-none overflow-hidden z-1 opacity-70">
     <div class="circle-container absolute" v-for="index in 200" :key="index">
       <div class="circle w-full h-full particles"></div>
     </div>
@@ -10,10 +10,6 @@
 
 <style lang="scss">
 @use "sass:math";
-
-.container-part {
-  // position: relative;
-}
 
 .background {
   display: block;

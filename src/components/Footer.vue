@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full absolute bottom-0 flex flex-col items-center justify-center p-5">
+  <div class="w-full absolute bottom-0 flex flex-col items-center justify-center p-5 z-30">
     <div class="w-full flex flex-row items-start justify-center relative">
       <a 
         v-for="(link, index) in CONTACT"

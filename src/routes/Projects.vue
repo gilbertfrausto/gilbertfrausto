@@ -71,7 +71,7 @@
               <Moodys v-else-if="project === PROJECTS.MOODYS" :name="project"  :closeModal="closeModal"/>
               <ForestRoad v-else-if="project === PROJECTS.FOREST_ROAD" :name="project"  :closeModal="closeModal"/>
               <Pz v-else-if="project === PROJECTS.PZ" :name="project" :closeModal="closeModal"/>
-              <Ibt v-else-if="project === PROJECTS.IBT" :name="project" :closeModal="closeModal"/>
+              <Ibt v-else-if="project === PROJECTS.NPM" :name="project" :closeModal="closeModal"/>
 
               <div v-else>no project</div>
             </DialogPanel>

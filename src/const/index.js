@@ -35,6 +35,7 @@ export const PROJECTS = {
   FOREST_ROAD: 'The Forest Road Company',
   MOODYS: `Moody's`,
   IBT: 'Inbetween Time',
+  NPM: 'NPM',
   BLANK: 'Blank'
 };
 
@@ -318,12 +319,12 @@ export const PROJECTS_DATA = {
       ],
     },
     inbetweenTime: {
-      name: PROJECTS.IBT,
+      name: PROJECTS.NPM,
       tags: ['animations', 'npm', 'coroutine', 'DOP', 'Classless OOP'],
       description: ``,
       projects: {
         npm: {
-          name: 'NPM',
+          name: PROJECTS.IBT,
           description: `Inbetween time is a iteration library to help developers who need coroutine functionality. In the case of programmatically needing to stop an 
             animation loop, say... somehting running at 60fps. But there is always a time where you need this function to resume where it left off, that's where inbetween-time comes into play.
             To take things a level deeper, I decided to switch from classes OOP or JS Module pattern, to a modern Data-Oriented programming (DOP) pattern. This focuses of pure functions and immutability.`,
@@ -333,7 +334,7 @@ export const PROJECTS_DATA = {
       socials: [
         {
           name: 'npm',
-          link: 'https://www.npmjs.com/package/inbetween-time',
+          link: 'https://www.npmjs.com/package/@gilbertfrausto/inbetween-time',
           icon: FaBandsNpm,
           exclude: true
         },
@@ -350,13 +351,13 @@ export const PROJECTS_DATA = {
 export const ALL_PROJECT_TILES = {
   projects: [
     {
-      name: PROJECTS.COSTUME,
-      img: costumeTile,
+      name: PROJECTS.GOOGLE,
+      img: googleTile,
       project_index: 1
     },
     {
-      name: PROJECTS.PZ,
-      img: pzTile,
+      name: PROJECTS.FOREST_ROAD,
+      img: forestRoadTile,
       project_index: 2
     },
     {
@@ -367,16 +368,16 @@ export const ALL_PROJECT_TILES = {
     {
       name: PROJECTS.BLANK
     },
-    {
-      name: PROJECTS.GOOGLE,
-      img: googleTile,
+     {
+      name: PROJECTS.COSTUME,
+      img: costumeTile,
       project_index: 3
     },
     {
-      name: PROJECTS.FOREST_ROAD,
-      img: forestRoadTile,
+      name: PROJECTS.PZ,
+      img: pzTile,
       project_index: 4
-    },
+    }
   ],
   projects_row_3: [
     {
@@ -388,21 +389,13 @@ export const ALL_PROJECT_TILES = {
     {
       name: PROJECTS.MOODYS,
       img: moodysTile,
-      project_index: 3
+      project_index: 5
     },
     {
-      name: PROJECTS.IBT,
+      name: PROJECTS.NPM,
       img: ibtTile,
-      project_index: 4
+      project_index: 6
     }
-
-  
-    // TODO PROJECT NEEDS MORE ASSETSs
-    // {
-    //   name: PROJECTS.BB,
-    //   img: '@/assets/images/projects/bb.png',
-    //   project_index: 4
-    // },
   ]
 };
 
@@ -450,7 +443,7 @@ export const CONTACT_DATA = {
   website: 'https://gilbert-frausto.web.app/',
   gravatar: 'https://gilbertfrausto.life/',
   footer: 'gilbert-frausto.web.app',
-  npm: 'https://www.npmjs.com/package/inbetween-time'
+  npm: 'https://www.npmjs.com/~gilbertfrausto'
 };
 
 export const CONTACT = [

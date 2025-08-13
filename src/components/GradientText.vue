@@ -6,9 +6,10 @@
       class="font-red-hat opacity-0 animate-fade-in text-gray-950 dark:text-white md:text-4xl text-xl font-bold flex-wrap text-center"
       >
       <span :class="[
-        text.colored && 'welcome-text gradient-text'
+        text.colored && 'welcome-text gradient-text',
+        active && 'opacity-15'
       ]" 
-      class="px-1"
+      class="px-1 transition-opacity"
       @load="updateText({index, text})"
       @compositionupdate="updateText()"
       @animationend="updateText()"
@@ -23,9 +24,14 @@
 import { ALL_LETTERS, HOME_DATA } from '@/const';
 import inBetweenTime from 'inbetween-time';
 import { onMounted, onUpdated, ref } from 'vue';
+import { storeToRefs } from 'pinia';
+import useAppStore from '@/store/app-store';
 
 const DELAY = 100;
 const home_data = ref(HOME_DATA);
+
+const store = useAppStore();
+const {active} = storeToRefs(store);
 
 onMounted(() => {
   //TOOD capture the the animation end event then fire this method

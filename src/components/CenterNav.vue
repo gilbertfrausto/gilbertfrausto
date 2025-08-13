@@ -1,14 +1,23 @@
 <template>
-  <div class="w-fll h-full flex flex-row items-center justify-end animate-fade-in">
-    <nav class="min-h-48 min-w-48 flex flex-col items-center justify-center md:relative absolute top-0 z-10">
+  <div 
+    :class="{
+      'hidden' : !active,
+      'flex': active
+    }"
+    class="w-fll h-full md:flex flex-row items-center md:justify-end justify-center animate-fade-in relative z-30" >
+    <nav class="min-h-48 min-w-48 flex flex-col items-center justify-center md:relative absolute">
       <ul class="flex flex-col">
         <li 
           v-for="(link, index) in listItems"
           :key="link.path"
           :style="{ animationDelay: `${index * delay}ms` }"
-          :class="[...BUTTON_STYLES]"
+          :class="[
+            ...BUTTON_STYLES,
+            active ? 'text-white dark:text-white hover:border-white' : ''
+          ]"
           @mouseover="handleMouseOver(index)"
-          @mouseout="handleMouseOut(index)">
+          @mouseout="handleMouseOut(index)"
+          @click="setActive(false)">
           <router-link :to="link.path"  v-if="link.name !== 'Home'">
             {{link.displayText}}
         </router-link>
@@ -21,12 +30,20 @@
 <script setup>;
 import { ref, onMounted } from 'vue';
 import inBetweenTime from 'inbetween-time';
+import { storeToRefs } from 'pinia';
+import useAppStore from '@/store/app-store';
 import { routes } from '@/router';
 import { BUTTON_STYLES } from '@/classes/button';
 import { ALL_LETTERS } from '@/const';
 
 const delay = 150; // ms
 const show = ref(false);
+
+// md:flex hidden
+
+const store = useAppStore();
+const {active} = storeToRefs(store);
+const {setActive} = store;
 
 const listItems = ref(routes
   .filter(item => item.name !== 'Home')
