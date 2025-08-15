@@ -35,6 +35,7 @@ export const PROJECTS = {
   FOREST_ROAD: 'The Forest Road Company',
   MOODYS: `Moody's`,
   IBT: 'Inbetween Time',
+  PS: 'Py-Script',
   NPM: 'NPM',
   BLANK: 'Blank'
 };
@@ -329,12 +330,23 @@ export const PROJECTS_DATA = {
             animation loop, say... somehting running at 60fps. But there is always a time where you need this function to resume where it left off, that's where inbetween-time comes into play.
             To take things a level deeper, I decided to switch from classes OOP or JS Module pattern, to a modern Data-Oriented programming (DOP) pattern. This focuses of pure functions and immutability.`,
           stack: 'Vanillia JS, Firebase, BUN',
+        },
+        ps: {
+          name: PROJECTS.PS,
+          description: 'A lightweight and versatile library for running your favorite native Python methods in modern JavaScript and TypeScript applications. I also thought this would help a lot of young Python devs to quickly get productive in JavaScript.',
+          stack: 'Vanillia JS, BUN',
         }
       },
       socials: [
         {
           name: 'npm',
           link: 'https://www.npmjs.com/package/@gilbertfrausto/inbetween-time',
+          icon: FaBandsNpm,
+          exclude: true
+        },
+        {
+          name: 'npm',
+          link: 'https://www.npmjs.com/package/@gilbertfrausto/py-script',
           icon: FaBandsNpm,
           exclude: true
         },

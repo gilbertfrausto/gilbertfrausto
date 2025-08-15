@@ -15,4 +15,4 @@ export const routes = [
 export const router = createRouter({
   history: createMemoryHistory(),
   routes,
-})
+});

@@ -35,6 +35,7 @@ import useAppStore from '@/store/app-store';
 import { routes } from '@/router';
 import { BUTTON_STYLES } from '@/classes/button';
 import { ALL_LETTERS } from '@/const';
+import menu from '@/assets/audio/menu.wav';
 
 const delay = 150; // ms
 const show = ref(false);
@@ -44,6 +45,8 @@ const show = ref(false);
 const store = useAppStore();
 const {active} = storeToRefs(store);
 const {setActive} = store;
+
+const menuAudio = new Audio(menu);
 
 const listItems = ref(routes
   .filter(item => item.name !== 'Home')
@@ -56,6 +59,12 @@ const listItems = ref(routes
 const intervals = {};
 const handleMouseOver = (index) => {
   const {name} = listItems.value[index];
+  
+  /**
+   * TODO will add when I add a speaker icon, can force audio upon the world
+   * menuAudio.play();
+  */ 
+  
   intervals[index] = inBetweenTime({
     timer: 30,
     count: name.length,

@@ -1,0 +1,20 @@
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+
+export function startAnalytics() {
+  if (import.meta.env.PROD) {
+    const firebaseConfig = {
+      apiKey: import.meta.env.VITE_API_KEY,
+      authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+      projectId: import.meta.env.VITE_PRODUCT_ID,
+      storageBucket: import.meta.env.VITE_BUCKET,
+      messagingSenderId: import.meta.env.VITE_SENDING_ID,
+      appId: import.meta.env.VITE_APP_ID,
+      measurementId: import.meta.env.VITE_MEASURE_ID
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  }
+}

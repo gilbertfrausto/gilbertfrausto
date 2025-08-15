@@ -1,7 +1,7 @@
 {
   "name": "gilbert-frausto",
   "private": true,
-  "version": "1.1.0",
+  "version": "1.1.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -16,6 +16,7 @@
     "@kalimahapps/vue-icons": "^1.8.1",
     "@splidejs/vue-splide": "^0.6.12",
     "@tailwindcss/vite": "^4.1.11",
+    "firebase": "^12.1.0",
     "firebase-tools": "^14.11.1",
     "inbetween-time": "^2.1.0",
     "pinia": "^3.0.3",

@@ -41,6 +41,24 @@
               {{inbetweenTime.projects.npm.stack}}
             </p>  
           </div>
+           <div class="pb-4">
+            <div class="flex flex-row items-center opacity-0 animate-fade-in" :style="{ animationDelay: `${3 * DELAY}ms` }">
+              <h3 class="font-lex text-black dark:text-white">{{ inbetweenTime.projects.ps.name }}</h3>
+              <a class="mx-2" target="_blank" :href="inbetweenTime.socials[1].link">
+                <AkNpmFill class="text-black-dull dark:text-white-dull text-xl my-2 cursor-pointer hover:scale-150 hover:opacity-60 transition-all"/>
+              </a>
+            </div>
+
+            <p class="font-kode text-sm text-black-dull dark:text-white-dull opacity-0 animate-fade-in" :style="{ animationDelay: `${4 * DELAY}ms` }">
+              {{ inbetweenTime.projects.ps.description }} 
+            </p>
+            <p 
+              class="text-sm text-black/50 dark:text-white/50 font-kode pt-2 opacity-0 animate-fade-in"
+              :style="{ animationDelay: `${5 * DELAY}ms` }"
+            >
+              {{inbetweenTime.projects.ps.stack}}
+            </p>  
+          </div>
         </div>
       </div>
 

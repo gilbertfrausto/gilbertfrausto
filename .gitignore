@@ -24,3 +24,9 @@ dist-ssr
 *.sw?
 .firebaserc
 .firebase/
+.env
+.env.production
+.firebase/*
+.firebase/hosting.*
+.firebase/hosting.ZGlzdA.cache
+/.firebase
