@@ -8,13 +8,13 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
 
-const canvas = ref(null);
-let ctx = null;
-let animationId = null;
-let particles = [];
-let spawnTimer = 0;
-let maxParticles = 200;
-let spawnRate = 100; // milliseconds between spawns
+const canvas      = ref(null);
+let ctx           = null;
+let animationId   = null;
+let particles     = [];
+let spawnTimer    = 0;
+let maxParticles  = 200;
+let spawnRate     = 75; // milliseconds between spawns
 
 // Reactive theme detection
 const isDarkMode = ref(true);
@@ -63,22 +63,24 @@ function setupThemeWatcher() {
 
 class Particle {
   constructor(canvasWidth, canvasHeight) {
-    this.canvasWidth = canvasWidth;
+    this.canvasWidth  = canvasWidth;
     this.canvasHeight = canvasHeight;
+    
     this.reset();
-    this.age = Math.random() * 1000;
+    
+    this.age    = Math.random() * 1000;
     this.active = false;
   }
 
   reset() {
-    this.x = Math.random() * this.canvasWidth;
-    this.y = this.canvasHeight + Math.random() * 50; // Start just below viewport
-    this.targetX = Math.random() * this.canvasWidth;
-    this.baseSize = Math.random() * 3 + 1; // Particles (1-4px)
-    this.speed = 0.5 + Math.random() * 0.5; // Simpler speed
-    this.pulseSpeed = 0.05 + Math.random() * 0.05; // Faster pulsing for visibility
-    this.pulseOffset = Math.random() * Math.PI * 2;
-    this.opacity = 0.5 + Math.random() * 0.4;
+    this.x            = Math.random() * this.canvasWidth;
+    this.y            = this.canvasHeight + Math.random() * 50; // Start just below viewport
+    this.targetX      = Math.random() * this.canvasWidth;
+    this.baseSize     = Math.random() * 3 + 1; // Particles (1-4px)
+    this.speed        = 0.5 + Math.random() * 0.5; // Simpler speed
+    this.pulseSpeed   = 0.05 + Math.random() * 0.05; // Faster pulsing for visibility
+    this.pulseOffset  = Math.random() * Math.PI * 2;
+    this.opacity      = 0.5 + Math.random() * 0.4;
   }
 
   update(deltaTime) {
@@ -160,7 +162,7 @@ let lastTime = 0;
 
 function animate(currentTime) {
   const deltaTime = currentTime - lastTime;
-  lastTime = currentTime;
+  lastTime        = currentTime;
 
   if (!ctx || !canvas.value) return;
 
@@ -192,20 +194,20 @@ function animate(currentTime) {
 function resizeCanvas() {
   if (!canvas.value) return;
 
-  const rect = canvas.value.getBoundingClientRect();
-  canvas.value.width = rect.width;
+  const rect          = canvas.value.getBoundingClientRect();
+  canvas.value.width  = rect.width;
   canvas.value.height = rect.height;
 
   // Update particle canvas dimensions
   particles.forEach((particle) => {
-    particle.canvasWidth = canvas.value.width;
+    particle.canvasWidth  = canvas.value.width;
     particle.canvasHeight = canvas.value.height;
   });
 }
 
 function initParticles() {
-  particles = [];
-  spawnTimer = 0;
+  particles   = [];
+  spawnTimer  = 0;
 
   if (!canvas.value) return;
 
